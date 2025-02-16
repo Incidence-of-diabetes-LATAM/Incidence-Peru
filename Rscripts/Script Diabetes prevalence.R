@@ -59,12 +59,23 @@ BASE_FINAL <- BASE_FINAL %>%
 
 table(BASE_FINAL$DIABETES, useNA = "ifany")
 
+##To note:
+# Definition of diabetes based on the ENDES survey (QS109)
+# Diabetes was defined as a self-reported medical diagnosis.
+# Participants were asked: "Has a doctor ever diagnosed you with diabetes or "high blood sugar"?"
+# Respondents were instructed not to consider gestational diabetes.
+
 
 ###Create a simplified dataset with only the necessary variables
 ENDES <- BASE_FINAL %>%
   select(HHID, QSNUMERO, CONGLOMERADO = HV001, ESTRATO = HV022,
          PONDERACION = Peso15_amas, SEXO = HV104, EDAD = QS23, DIABETES,AREA_RESIDENCIA = HV025,
          QUINTIL_BIENESTAR = HV270, REGION_NATURAL = SHREGION)
+##To note: PONDERACION = WEIGHT:
+##The weighting factor PESO15_AMAS is used to adjust for unequal selection
+##probabilities and non-response in the ENDES survey, ensuring representative
+##estimates for individuals aged 15 and older in health-related indicators
+##such as hypertension, diabetes, cancer, and obesity.
 
 
 # Specify the survey design

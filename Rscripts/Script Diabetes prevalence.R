@@ -78,28 +78,70 @@ ENDES <- BASE_FINAL %>%
 ##such as hypertension, diabetes, cancer, and obesity.
 
 
+#Adjust the strata with 1 PSU
+options(survey.lonely.psu = "adjust")
+
 # Specify the survey design
 diseño <- svydesign(id =~ CONGLOMERADO, strata =~ ESTRATO, weights=~ PONDERACION, data=ENDES)
 
-##Create age group variable
+## Create age group variable with open-ended category for 80+ years
 ENDES <- ENDES %>%
   mutate(
     GRUPO_EDAD = cut(
       EDAD,
       breaks = c(15, 20, 25, 30, 35, 40, 45, 50, 55, 60,
-                 65, 70, 75, 80, 85, 90, 95, 100),
+                 65, 70, 75, 80, 100),  # Se agrupa >=80 en "80+"
       right = FALSE,
       labels = c("15-19","20-24","25-29","30-34","35-39","40-44",
                  "45-49","50-54","55-59","60-64","65-69","70-74",
-                 "75-79","80-84","85-89","90-94","95-99")
+                 "75-79","80+")
     )
   )
+
 
 ## Verifying
 table(ENDES$GRUPO_EDAD, useNA = "ifany")
 
+#Adjust the strata with 1 PSU
+options(survey.lonely.psu = "adjust")
+
 # Specifying the survey design
 diseño <- svydesign(id =~ CONGLOMERADO, strata =~ ESTRATO, weights=~ PONDERACION, data=ENDES)
+
+# Calculate prevalence and 95% CI using logit-transformed intervals
+resultados <- svyby(
+  ~ DIABETES,                  # Outcome variable (0/1)
+  ~ SEXO + GRUPO_EDAD,         # Stratification variables
+  design = diseño,             # Survey design
+  FUN = svymean,
+  na.rm = TRUE,
+  vartype = c("ci"),           # Intervalos de confianza
+  method = "logit"             # Use logit method for CI
+)
+
+# Convert to %
+resultados <- resultados %>%
+  mutate(
+    DIABETES = DIABETES * 100,  # Convert to %
+    ci_l = pmax(ci_l * 100, 0), # Ensure lower bounds are not negative
+    ci_u = pmin(ci_u * 100, 100) # Ensure upper bounds do not exceed 100%
+  )
+
+# Check results
+print(resultados)
+
+
+# Load library
+library(writexl)
+
+# Save the table in Excel
+write_xlsx(resultados, "Results_ENDES2023.xlsx")
+
+
+######################
+#######################
+
+#Previous 95%CI (not logit-transformed), just for ref
 
 # Calculate prevalence and 95% CI by sex and age group (%)
 resultados <- svyby(
@@ -127,37 +169,6 @@ library(writexl)
 
 # Save the table in Excel
 write_xlsx(resultados, "resultados_diabetes.xlsx")
-
-
-
-# Calculate prevalence and 95% CI using logit-transformed intervals
-resultados <- svyby(
-  ~ DIABETES,                  # Outcome variable (0/1)
-  ~ SEXO + GRUPO_EDAD,         # Stratification variables
-  design = diseño,             # Survey design
-  FUN = svymean,
-  na.rm = TRUE,
-  vartype = c("ci"),           # Intervalos de confianza
-  method = "logit"             # Use logit method for CI
-)
-
-# Convert to %
-resultados <- resultados %>%
-  mutate(
-    DIABETES = DIABETES * 100,  # Convert to %
-    ci_l = pmax(ci_l * 100, 0), # Ensure lower bounds are not negative
-    ci_u = pmin(ci_u * 100, 100) # Ensure upper bounds do not exceed 100%
-  )
-
-# Verifyin results
-print(resultados)
-
-
-# Load library
-library(writexl)
-
-# Save the table in Excel
-write_xlsx(resultados, "resultados22_diabetes.xlsx")
 
 
 ######################

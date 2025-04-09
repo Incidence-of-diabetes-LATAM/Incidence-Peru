@@ -1,5 +1,107 @@
 As a starting point define the available input data and the period that is covered
 in each input data source
 
-# This is a test
 
+#Methods
+The estimation of the incidence rate of diabetes without
+individual follow-up data is based on the mathematical
+relation between the age-specific prevalence of diabetes,
+the mortality rate of the general population, and the mortality
+rate ratio (MRR). The MRR is defined as the ratio
+of the mortality rate among people with and without
+diabetes. Specifically, we used a partial differential equation
+which governs the illness-death model of chronic
+diseases [10]. Transition between these states is characterized
+by the incidence rate (no diabetes → diabetes)
+and the mortality rates (no diabetes → death; diabetes →
+death). This approach has been used previously for estimating
+the incidence rate of diabetes, the incidence of
+diabetes complications, and the incidence rate of other
+chronic diseases [11–14]. Further details are provided in
+the following section.
+Estimating the incidence rate of diabetes
+Brinks and Landwehr developed a partial differential
+equation [10], which describes the temporal change in
+prevalence with respect to age and calendar time. Solving
+this equation for the incidence rate i yields:
+where p represents the prevalence of diabetes, ( 
+a + 
+t)p
+the temporal change in prevalence with respect to age
+a and calendar time t, m the mortality rate of the general
+population and MRR the mortality rate ratio. Equation
+(1) illustrates that the incidence rate i can be
+calculated by plugging in estimates for p, its temporal
+change (a + t)p , m and MRR on the right hand side
+of the equation. To estimate the temporal change in p,
+cross-sectional data on age-specific prevalence for at
+least two years are required. As described below, age-specific
+prevalence for the years 2000, 2006, 2012 and 2018
+was available for this study. We used these data to estimate
+the incidence rate midway between these cross-sectional
+studies, i.e. the years 2003, 2009 and 2015. Due to
+small sample size in age groups ≥ 80 years, we restricted
+the estimation of the incidence rate to age groups 20–79
+years. The mortality rate of the general population (m)
+for the years 2003, 2009 and 2015 was based on publicly
+available data from official population vital statistics
+retrieved from the National Statistics and Geography
+Bureau (“INEGI- Instituto Nacional de Estadística y Geografía”
+from its acronym in Spanish- https://www.inegi.
+org.mx/datosabiertos/). Unfortunately, no nationally representative
+data are available for MRR. As in previous
+analyses [13], we considered a plausible range of age-specific
+MRR ranging between 7.5–8.5 at age 30 years, and
+2.5-3.0 at age 80 years. Between ages 30 and 80 years we
+assumed a log-linear relation between age and MRR as
+observed in previous studies [15, 16]. The ranges of agespecific
+MRRs are in line with one study including participants
+from Mexico City [17], and studies from other
+countries [15, 16].
+To account for the uncertainty in the input data we
+calculated 95% confidence intervals (95% CI) based on a
+resampling approach [18]. We repeated the estimation of
+the incidence with Eq. (1) 2,000 times. For each repetition,
+we drew samples from the distribution of the input
+prevalence, which was estimated with logistic regression
+as described in the next section. MRR values at age 30
+and 80 years were drawn from uniform distributions in
+the range of plausible values described above. We report
+the median, 2.5th and 97.5th percentiles of the resulting
+distribution of incidence estimates as the point estimate
+and 95% CI.
+Estimation of input prevalence
+We used publicly available data from the Mexican
+National Health and Nutrition Survey (ENSANUT for its
+acronym in Spanish, data available here: https://ensanut.
+insp.mx/) to estimate the self-reported age- and sex-specific
+prevalence of diabetes for the years 2000, 2006, 2012,
+and 2018. In brief, ENSANUT is a probabilistic survey of
+Mexican households that covers a broad range of health
+and nutritional indicators. The complex survey design
+allows making statistical inference of the health component
+at national and subnational levels. The detailed
+study design of each wave of ENSANUT has been documented
+elsewhere [19].
+We estimated the prevalence in each survey year separately
+with logistic regression models that accounted for
+the complex survey design using the survey weights provided
+by ENSANUT. To account for the non-linear relationship
+between age and diabetes prevalence we used a
+natural cubic spline with five equally spaced knots. The
+logit-transformed prevalence from the logistic regression
+models for the different survey years were combined into
+one data set and used as the dependent variable in a linear
+regression model with sex and a B-spline with 3 knots for
+age as independent variables. We also included a linear
+term for the survey year to account for temporal changes
+in prevalence. To allow for age- and sex-specific prevalence
+as well as age- and sex-specific trends in prevalence
+we included a three-way interaction between age, survey
+year and sex. Modeling the logit-transformed prevalence
+from the different survey years in one regression model
+was necessary to appropriately account for the complex
+survey design and at the same time obtain the smoothed
+input data for the partial differential Eq. (1). All analyses
+were carried out with the statistical software R, version
+4.1.3 [20].

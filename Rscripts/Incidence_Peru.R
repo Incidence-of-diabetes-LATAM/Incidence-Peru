@@ -1,43 +1,56 @@
+rm(list = ls())
+
 # load packages
 library(readxl)
 library(data.table)
 library(ggplot2)
-
-# load prevalence data
-prev <- data.table(read_xlsx("data/Final_Results_2023.xlsx"))
-prev
-setorder(prev, SEX, AGE_GROUP)
-
-#plot(prev[1:17, DIABETES])
-#plot(prev[18:34, DIABETES])
-prev[ , age := 2.5 + as.numeric(substr(AGE_GROUP, 1, 2))]
+library(splines)
 
 ## 1.2 Functions for prevalence data ----
 logit  <- function(x){log(x/(1-x)) }
 expit  <- function(x){1/(1+exp(-x))}
 
-### function returns time, age and sex-specific prevalence
-pmod <- lm(DIABETES ~ ns(age, df = 4) * Year * Sex, data = prev)
-summary(pmod)
-prev$link_lm <- predict(pmod)
+# List of years
+years <- 2015:2023
 
-get_prev <- function(t, a, p.Sex, rnd){
-  a_ <- prev.predicted[Year %in% t & Sex == p.Sex, Age]
-  p_ <- prev.predicted[Year %in% t & Sex == p.Sex, link_lm]
-  #p.SE_ <- prev.predicted[Year %in% t & Sex == p.Sex, SE]
+# Initialize an empty data.table
+dt.endes_all <- data.table()
 
-  ln.p <- approx(a_, p_, xout = a, rule = 2)$y
-  #ln.p.SE <- approx(a_, p.SE_, xout = a, rule = 2)$y
+# Loop through each year and bind to endes_all
+for (year in years) {
+  # Construct the file path
+  file_path <- paste0("data/Results_ENDES", year, ".xlsx")
 
-  return(expit(ln.p + rnd * ln.p.SE))
+  # Read and process the data
+  dt.prev <- data.table(read_xlsx(file_path))
+  dt.prev[, `:=`(
+    age = 2.5 + as.numeric(substr(AGE_GROUP, 1, 2)),
+    year = year,
+    prev = 0.01 * DIABETES,
+    SEX = fcase(
+      SEX == 1, "Men",
+      SEX == 2, "Women"
+    )
+    )]
+
+  dt.prev[, prev_logit := logit(prev)]
+
+  # Append to the full dataset
+  dt.endes_all <- rbind(dt.endes_all, dt.prev, fill = TRUE)
 }
 
-plt.input_prev <- ggplot(data = prev[Age > 19 & Age < 80],
-                         aes(x = Age, y = expit(link_lm) * 100)) +
+### function returns time, age and sex-specific prevalence
+pmod <- lm(prev_logit ~ ns(age, df = 3) * year * SEX, data = dt.endes_all)
+BIC(pmod)
+dt.endes_all$prev_logit.predicted <- predict(pmod)
+
+plt.input_prev <- ggplot(data = dt.endes_all,
+                         aes(x = age, y = expit(prev_logit.predicted) * 100)) +
   geom_line() +
-  geom_ribbon(aes(ymin = expit(link_lm-1.96*SE) * 100,
-                  ymax = expit(link_lm+1.96*SE) * 100),
-              alpha = 0.4) +
+  geom_point(aes(y = DIABETES)) +
+  #geom_ribbon(aes(ymin = expit(link_lm-1.96*SE) * 100,
+  #                ymax = expit(link_lm+1.96*SE) * 100),
+  #            alpha = 0.4) +
   ylab("Prevalence") +
   xlab("Age in years") +
   theme_bw() +
@@ -47,10 +60,22 @@ plt.input_prev <- ggplot(data = prev[Age > 19 & Age < 80],
         axis.line = element_line(colour = "black"),
         legend.position = "none") +
   scale_y_continuous(breaks= seq(0, 35, 5)) +
-  facet_grid(rows = vars(Sex), cols = vars(Year))
+  facet_grid(rows = vars(SEX), cols = vars(year))
+
+get_prev <- function(t, a, p.Sex, rnd = 0){
+  a_ <- dt.endes_all[year %in% t & SEX == p.Sex, age]
+  p_ <- dt.endes_all[year %in% t & SEX == p.Sex, prev_logit.predicted]
+  #p.SE_ <- prev.predicted[Year %in% t & Sex == p.Sex, SE]
+
+  ln.p <- approx(a_, p_, xout = a, rule = 2)$y
+  #ln.p.SE <- approx(a_, p.SE_, xout = a, rule = 2)$y
+
+  #return(expit(ln.p + rnd * ln.p.SE))
+  return(expit(ln.p))
+}
 
 ### function returns change prevalence between survey years
-get_dp <- function(t1, t2, dp.a, dp.Sex, rnd.p.1, rnd.p.2){
+get_dp <- function(t1, t2, dp.a, dp.Sex, rnd.p.1 = 0, rnd.p.2 = 0){
   dT  <- t2 - t1
   p1  <- get_prev(t1, dp.a - dT / 2, p.Sex = dp.Sex, rnd = rnd.p.1)
   p2  <- get_prev(t2, dp.a + dT / 2, p.Sex = dp.Sex, rnd = rnd.p.2)
@@ -59,13 +84,21 @@ get_dp <- function(t1, t2, dp.a, dp.Sex, rnd.p.1, rnd.p.2){
 }
 
 ### function returns  prevalence midway between survey years
-get_p.mid <- function(t1, t2, p.a, dp.Sex, rnd.p.1, rnd.p.2){
+get_p.mid <- function(t1, t2, p.a, dp.Sex, rnd.p.1 = 0, rnd.p.2 = 0){
   dT  <- t2 - t1
   p1  <- get_prev(t1, p.a - dT / 2, p.Sex = dp.Sex, rnd = rnd.p.1)
   p2  <- get_prev(t2, p.a + dT / 2, p.Sex = dp.Sex, rnd = rnd.p.2)
-  pt   <- 0.5 * (p2 + p1)
+  pt  <- 0.5 * (p2 + p1)
   return(pt)
 }
+
+#get_dp(t1 = 2016, t2 = 2017, dp.a = 65, dp.Sex = 1, rnd.p.1 = 0, rnd.p.2 = 0)
+#p1 <- get_prev(2016, 65-0.5, p.Sex = 1)
+#p2 <- get_prev(2017, 65+0.5, p.Sex = 1)
+#(p2 - p1) / 1
+
+#get_p.mid(t1 = 2016, t2 = 2017, p.a = 65, dp.Sex = 1, rnd.p.1 = 0, rnd.p.2 = 0)
+#0.5 * (p2 + p1)
 
 ## 1.3 Data and function for mortality rate ratio (diab vs. no diab) ----
 # MRR function as in India paper
@@ -75,12 +108,12 @@ get_R <- function(a_){
   logR_ <- approx(c(30, 90), log(c(R30, R90)), xout = a_, rule = 2)$y
   return(exp(logR_))
 }
-r_vec <- rep(NA, 1000000)
-for(i in 1:1000000){
-  r_i_ <- get_R(80)
-  r_vec[i] <- r_i_
-}
-range(r_vec)
+#r_vec <- rep(NA, 1000000)
+#for(i in 1:1000000){
+#  r_i_ <- get_R(80)
+#  r_vec[i] <- r_i_
+#}
+#range(r_vec)
 # range at age 80: 2.493110 3.065325
 
 ### mortality rate ratio (MRR) from  Alegre-Díaz et al. 2016
@@ -109,7 +142,12 @@ fct.MRR.Mex(20)
 ## 1.4 Data and function for general mortality ----
 # general mortality from here: https://population.un.org/dataportal/data/indicators/80/locations/604/start/2010/end/2023/table/pivotbysex?df=99779a07-5b67-43bb-93aa-b0b03b82a778
 gen_mort <- fread("data/unpopulation_dataportal_20250428135409.csv")
-gen_mort[ , Age := as.numeric(substr(Age, 1, 3))]
+gen_mort[ , `:=`(
+  Age = as.numeric(substr(Age, 1, 3)),
+  Sex = fcase(
+    Sex == "Male", "Men",
+    Sex == "Female", "Women")
+  )]
 setorder(gen_mort, Time, Sex, Age)
 gen_mort <- gen_mort[, .(Time, Age, Sex, Value)]
 
@@ -119,9 +157,6 @@ fct.gen_mort <- function(t, a, sex_mort) {
   return(mort_)
 }
 
-fct.gen_mort(2010, 96:100, sex_mort = "Female")
-
-
 plt.mortality <- ggplot(data = gen_mort, aes(x = Age, y = log(Value), colour = Sex)) +
   geom_line(linewidth = 1) +
   #geom_point() +
@@ -130,3 +165,88 @@ plt.mortality <- ggplot(data = gen_mort, aes(x = Age, y = log(Value), colour = S
 plt.heat <- ggplot(data = gen_mort, aes(x = Time, y = Age, fill = log(Value))) +
   geom_tile() +
   scale_fill_viridis_c()
+
+
+# 2. Estimate incidence ----
+
+### create matrix to store the results
+out.ages <- 20:90 # age range in years
+out.years <- 2021 #seq(2016, 2022, 2) # year of incidence estimation
+svy.years <- c(2019, 2023) #seq(2015, 2023, 2) # ENDES survey years
+nboots <- 2 # no. of repetitions
+
+i.res <- array(dim = c(length(out.ages), length(svy.years) - 1, 2, nboots),
+               dimnames = list(c(out.ages), c(out.years), c("Men", "Women"), 1:nboots))
+
+### apply partial differential equation (PDE) to input data
+set.seed(68763)
+for(bb in 1:nboots){ # nboots loops for random error estimation
+  for(ii in c("Men", "Women")){ # repeat analysis for men and women separately
+    for(tt in 1:(length(svy.years) - 1)){ # and midpoints between surveys
+      rnd.vec <- c(0,0)
+      #rnd.vec <- rnorm(2) # draw random error
+      MRR_  <- fct.MRR.Mex(out.ages) # get MRR
+      #MRR_  <- get_R(out.ages) # get MRR
+      t1_   <- svy.years[tt] # define t1
+      t2_   <- svy.years[tt + 1] # define t2
+      t_    <- 0.5 * (t1_ + t2_) # midpoint between t1 and t2
+
+      # get general mortality at midpoint between t1 and t2
+      m_    <- fct.gen_mort(t = round(t_), a = out.ages, sex_mort = ii)
+
+      # get prevalence at midpoint between t1 and t2
+      p_    <- get_p.mid(t1 = t1_, t2 = t2_, p.a = out.ages, dp.Sex = ii,
+                         rnd.p.1 = rnd.vec[1], rnd.p.2 = rnd.vec[2])
+
+      # get change in prevalence at midpoint between t1 and t2
+      dp_   <- get_dp(t1 = t1_, t2 = t2_, dp.a = out.ages, dp.Sex = ii,
+                      rnd.p.1 = rnd.vec[1], rnd.p.2 = rnd.vec[2])
+
+      # calculate incidence at midpoint between t1 and t2 using the PDE
+      i_  <- dp_/(1-p_) + m_ * p_ * (MRR_ - 1) / (1 + p_ * (MRR_ - 1))
+
+      # put incidence into results matrix
+      i.res[ , as.character(t_), ii, bb] <- pmax(i_, 0)
+    }
+  }
+}
+
+### matrix as data.table
+dt.incidence <- as.data.table(i.res, value.name = "incidence")
+setnames(dt.incidence, 1:4, c("age", "Year", "Sex", "boot"))
+
+### change type of age and year to numeric
+dt.incidence[ , c("age", "Year") := lapply(.SD, as.numeric),
+              .SDcols = c("age", "Year")]
+
+### calculate median and 95-% confidence intervals
+dt.incidence.CI <- dt.incidence[ , .(inc = median(incidence),
+                                     inc.lcl = quantile(incidence, probs = 0.025),
+                                     inc.ucl = quantile(incidence, probs = 0.975)),
+                                 by = .(age, Year, Sex)]
+
+### change type of age and year to numeric
+dt.incidence[ , c("age", "Year") := lapply(.SD, as.numeric),
+              .SDcols = c("age", "Year")]
+dt.incidence.CI[ , c("age", "Year") := lapply(.SD, as.numeric),
+                 .SDcols = c("age", "Year")]
+
+### plot results
+plt.inc <- ggplot(data = dt.incidence.CI[age < 81],
+                  aes(x = age, y = inc * 1000,
+                      color = factor(Sex, levels = c("Women", "Men")),
+                      fill = factor(Sex, levels = c("Women", "Men")))) +
+  geom_line(linewidth = 1) +
+  geom_ribbon(aes(ymin = inc.lcl * 1000, ymax = inc.ucl * 1000), alpha = 0.3,
+              show.legend = FALSE) +
+  facet_wrap(vars(Year)) +
+  xlab("Age in years") +
+  ylab("Incidence per 1,000 person years") +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1") +
+  scale_fill_brewer(palette = "Set1") +
+  theme(legend.title = element_blank(), strip.background = element_blank(),
+        strip.text = element_text(size = 13),
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 13),
+        legend.text = element_text(size = 13))

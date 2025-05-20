@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>protocol</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Protocol_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Protocol_files/libs/quarto-html/quarto.js"></script>
+<script src="Protocol_files/libs/quarto-html/popper.min.js"></script>
+<script src="Protocol_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Protocol_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Protocol_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Protocol_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Protocol_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Protocol_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Protocol_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<p>#Research Protocol #Incidence of Diabetes in Peru</p>
+<p>#Introduction</p>
+<p>Diabetes mellitus (DM) is a chronic non-communicable disease characterized by high blood glucose levels as a result of a multifactorial process that leads to β cell failure and a deficient response in insulin action (1). It currently represents a global public health problem with a high burden of mortality and morbidity, which translates into significant socio-economic consequences for the health care system. It is estimated that the average medical cost of people diagnosed with DM is 2.3 times higher compared to people without a diagnosis of DM (2).</p>
+<p>Research has shown that the incidence of DM has increased significantly in recent decades. Incident cases are estimated to have increased by 102.9% from 1990 to 2017, with an age-standardized rate from 234/100,000 for 1990 to 285/100,000 people in 2017 (3). This increase is potentially attributed to several factors such as lifestyle, eating habits, access to medical care and the high prevalence of risk factors such as overweight, obesity and sedentary lifestyle in different geographical regions (4). It has even been shown that the prevalence of DM in low- and middle-income countries has increased much faster compared to high-income countries (5).</p>
+<p>Thus, in the case of South and Central America, according to estimates by the International Diabetes Federation, the number of people with DM is projected to increase by 46% to 52 million by 2050 (6). Specifically for Peru, a study with 3.8 years of follow-up found a weighted cumulative incidence of DM of 7.2% and a weighted incidence rate of 19.5 (95% CI 13.9 to 28.3) new cases per 1,000 person-years. These results indicate that the incidence of DM in Peru is among the highest reported worldwide (7). However, reports on the incidence of DM in Peru remain limited and are mainly based on urban populations.</p>
+<p>For this reason, the objective of this study is to estimate the incidence rates of DM specific by age and sex, as well as the age-standardized incidence rates in Peru for the years 2018 to 2023, using a disease-death model with nationally representative data that allows increasing the understanding of the dynamics of DM in Peru and identifying risk groups that can benefit from possible interventions of prevention.</p>
+<p>#Methods</p>
+<p>An observational study will be carried out with cross-sectional data from the Demographic and Family Health Surveys (ENDES) from 2018 to 2023. Based on these surveys, the prevalent cases of DM at the national level in Peru will be identified. The ENDES survey is carried out annually and is representative of the entire territory of Peru, which generates information on demographic dynamics, health status of mothers and children under 5 years of age, communicable diseases and non-communicable diseases, among other aspects. The target population consists of households and their respective resident members, in which data is collected by trained personnel who visit the selected households. The instruments for collecting information vary from interviews to laboratory measurements (8).</p>
+<p>To identify the prevalent cases of DM from the ENDES survey, the question will be used as an indicator: Has a doctor ever diagnosed you with diabetes or “high sugar” in your blood? This question presents the following answer options: yes, no, don’t know/don’t remember (8). For the analyses, only participants who have answered with the options “yes” or “no” will be included, excluding those whose answer has been “do not know/do not remember”.</p>
+<p>Subsequently, the age-specific prevalence of DM will be estimated according to sex. The age groups will be categorized into five-year periods from 15-19 years to 90-95 years with their respective 95% confidence interval using the method of log-transformed intervals. Additionally, data from vital statistics from the National Institute of Statistics and Informatics (INEI) will be used to obtain the mortality rate in the general population for the years 2018 to 2023. Based on these results, the mortality rate ratio (MRR) will be calculated, which is defined as the quotient between the mortality rates of people with and without DM. Both the data from the ENDES survey and the vital statistics records are freely accessible.</p>
+<p>To estimate the incidence rate of DM for the years 2018 to 2023, a disease-death model will be applied using a differential equation. This method has previously been used in the context of chronic non-communicable diseases (9,10). This model is based on a mathematical relationship between the prevalence of DM by age, mortality rates in the general population, and MRR. The transition between these states is characterized by incidence rate (no diabetes → diabetes) and death rates (no diabetes → death; diabetes → death).</p>
+<p>The partial differential equation used to estimate the incidence of DM was developed by Brinks and Landwehr (9) and describes the temporal variation in prevalence with respect to age and calendar time. The equation is described below:</p>
+<p><span class="math inline">\(i = \frac{\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p}{1 - p} + m \cdot \frac{p (MRR - 1)}{p (MRR - 1) + 1}\)</span></p>
+<p>Figure 1. Partial differential equation for estimating the incidence.</p>
+<p>Where <span class="math inline">\(i\)</span> represents the incidence of DM, <span class="math inline">\(p\)</span> represents the prevalence of DM, <span class="math inline">\(\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p\)</span> indicates the temporal change in the prevalence of DM as a function of age groups <span class="math inline">\(a\)</span> and calendar time <span class="math inline">\(t\)</span>. Additionally, <span class="math inline">\(m\)</span> reflects the mortality rate of the general population and <span class="math inline">\(MRR\)</span> the mortality rate ratio. Therefore, the incidence rate can be calculated from estimates for the prevalence of DM, its temporal change according to age and calendar time, the overall mortality rate, and the ratio of mortality rates between people with and without DM.</p>
+<p>All statistical analyses will be performed in the R software version 4.5.0 and your R-studio environment (11).</p>
+<p>#Discussion</p>
+<p>According to estimates by different international organizations, reported cases of DM are increasing considerably, including developing countries such as Peru. Even projections in terms of disease burden indicate a worrying picture in terms of public health and health system spending (6). In this scenario, it is essential to carry out research and surveillance programs of the epidemiological profile of DM at the national level to understand the complex dynamics of the burden of the disease and to be able to establish public health actions aimed at the prevention and control of DM (12).</p>
+<p>However, in many cases, especially in Latin American countries, it is not possible to have follow-up data at the individual level that would allow a more direct estimate of the incidence of DM. For this reason, it is proposed in this research to apply the disease-death model to estimate the incidence of DM, using prevalence data from nationally representative surveys and mortality data from official statistics.</p>
+<p>This model has been applied to DM data in other studies in the Latin American population. Silverman et al calculated the incidence rate of age-specific DM for Mexico in 2003, 2009, and 2015 according to sex. For example, the authors found a 78% and 63% increase in the incidence of DM among women in the 40-49 and 50-59 age groups for the years 2003 and 2015 (13).</p>
+<p>However, this research protocol has some limitations, such as, for example, the data from the ENDES survey are based on self-reported diabetes status and therefore may reflect possible information bias. Additionally, it is not possible to distinguish between type 1 DM and type 2 DM, which is important given the increase in the incidence of type 1 DM that has been reported in recent years (14). However, the strengths of the research are recognized since it uses nationally representative survey data from a wide period of time. Thus, one of the first studies that manages to estimate the incidence of DM in Peru based on a national sample.</p>
+<p>#References</p>
+<ol type="1">
+<li><p>Ong KL, Stafford LK, McLaughlin SA, Boyko EJ, Vollset SE, Smith AE, et al.&nbsp;Global, regional, and national burden of diabetes from 1990 to 2021, with projections of prevalence to 2050: a systematic analysis for the Global Burden of Disease Study 2021. Lancet. 2023;402(10397):203–34.</p></li>
+<li><p>Balooch Hasankhani M, Mirzaei H, Karamoozian A. Global trend analysis of diabetes mellitus incidence, mortality, and mortality-to-incidence ratio from 1990 to 2019. Sci Rep [Internet]. 2023;13(1):1–8. Available from: https://doi.org/10.1038/s41598-023-49249-0</p></li>
+<li><p>Liu J, Ren ZH, Qiang H, Wu J, Shen M, Zhang L, et al.&nbsp;Trends in the incidence of diabetes mellitus: results from the Global Burden of Disease Study 2017 and implications for diabetes mellitus prevention. BMC Public Health. 2020;20(1):1–12.</p></li>
+<li><p>Chen L, Magliano DJ, Zimmet PZ. The worldwide epidemiology of type 2 diabetes mellitus - Present and future perspectives. Nat Rev Endocrinol. 2012;8(4):228–36.</p></li>
+<li><p>World Health Organization (WHO). Centro de prensa. Organización Mundial de la Salud. 2023. Diabetes. Available from: https://www.who.int/es/news-room/fact-sheets/detail/diabetes</p></li>
+<li><p>International Diabetes Federation. South and Central America. Diabetes regional report 2000 — 2050 [Internet]. 2025. Available from: https://diabetesatlas.org/data-by-location/region/south-and-central-america/</p></li>
+<li><p>Seclen SN, Rosas ME, Arias AJ, Medina CA. Elevated incidence rates of diabetes in Peru: Report from PERUDIAB, a national urban population-based longitudinal study. BMJ Open Diabetes Res Care. 2017;5(1):1–6.</p></li>
+<li><p>ENDES - Encuesta Demográfica y de Salud Familiar. ENDES [Internet]. 2024. Available from: https://proyectos.inei.gob.pe/endes/index.html</p></li>
+<li><p>Brinks R, Landwehr S. Age- and time-dependent model of the prevalence of non-communicable diseases and application to dementia in germany. Theor Popul Biol [Internet]. 2014;92:62–8. Available from: http://dx.doi.org/10.1016/j.tpb.2013.11.006</p></li>
+<li><p>Haß L, Tulka S, Tönnies T, Hoyer A, Palm R, Knippschild S, et al.&nbsp;Age-specific incidence of need for long-term care for men and women in Germany 2015: Cross-sectional study comprising 82 million people. F1000Research. 2023;12:1–12.</p></li>
+<li><p>R Core Team. R: A Language and Environment for Statistical Computing [Internet]. 2025. Available from: https://www.r-project.org/</p></li>
+<li><p>International Diabetes Federation. How registries can help tackle the global diabetes burden [Internet]. 2024. Available from: https://idf.org/news/online-event-how-registries-can-help-tackle-the-global-diabetes-burden/</p></li>
+<li><p>Silverman-Retana O, Brinks R, Hoyer A, Witte DR, Tönnies T. Using the illness-death model to estimate age- and sex-standardized incidence rates of diabetes in Mexico from 2003 to 2015. BMC Public Health. 2024;24(1):1–6.</p></li>
+<li><p>Gregory GA, Robinson TIG, Linklater SE, Wang F, Colagiuri S, de Beaufort C, et al.&nbsp;Global incidence, prevalence, and mortality of type 1 diabetes in 2021 with projection to 2040: a modelling study. Lancet Diabetes Endocrinol. 2022;10(10):741–60.</p></li>
+</ol>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

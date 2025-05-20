@@ -25,7 +25,7 @@ for (year in years) {
   dt.prev <- data.table(read_xlsx(file_path))
   dt.prev[, `:=`(
     age = 2.5 + as.numeric(substr(AGE_GROUP, 1, 2)),
-    year = year,
+    year = year+0.5,
     prev = 0.01 * DIABETES,
     SEX = fcase(
       SEX == 1, "Men",
@@ -39,18 +39,27 @@ for (year in years) {
   dt.endes_all <- rbind(dt.endes_all, dt.prev, fill = TRUE)
 }
 
+dt.endes_all[ , SE := (prev - ci_l/100) / 1.96]
+
+
 ### function returns time, age and sex-specific prevalence
-pmod <- lm(prev_logit ~ ns(age, df = 3) * year * SEX, data = dt.endes_all)
-BIC(pmod)
+#pmod <- lm(prev_logit ~ ns(age, df = 3) * year * SEX, data = dt.endes_all)
+
+# Best fit so far:
+#pmod <- lm(prev_logit ~ ns(age, df = 3) + year + SEX, data = dt.endes_all)
+# do interactions improve fit?
+pmod <- lm(prev_logit ~ ns(age, df = 3) + year * SEX, data = dt.endes_all)
+# maybe slightly for year*sex when considering R and AIC
+
+summary(pmod)
+AIC(pmod)
 dt.endes_all$prev_logit.predicted <- predict(pmod)
 
-plt.input_prev <- ggplot(data = dt.endes_all,
-                         aes(x = age, y = expit(prev_logit.predicted) * 100)) +
+plt.input_prev <- ggplot(data = dt.endes_all, aes(x = age, y = expit(prev_logit.predicted) * 100)) +
   geom_line() +
   geom_point(aes(y = DIABETES)) +
-  #geom_ribbon(aes(ymin = expit(link_lm-1.96*SE) * 100,
-  #                ymax = expit(link_lm+1.96*SE) * 100),
-  #            alpha = 0.4) +
+  #geom_ribbon(aes(ymin = ci_l, ymax = ci_u), alpha = 0.4) +
+  geom_errorbar(aes(ymin = ci_l, ymax = ci_u)) +
   ylab("Prevalence") +
   xlab("Age in years") +
   theme_bw() +
@@ -62,17 +71,35 @@ plt.input_prev <- ggplot(data = dt.endes_all,
   scale_y_continuous(breaks= seq(0, 35, 5)) +
   facet_grid(rows = vars(SEX), cols = vars(year))
 
+plt.input_prev2 <- ggplot(data = dt.endes_all,
+                         aes(x = year, y = expit(prev_logit.predicted) * 100)) +
+  geom_line() +
+  geom_point(aes(y = DIABETES)) +
+  geom_ribbon(aes(ymin = ci_l, ymax = ci_u), alpha = 0.4) +
+  ylab("Prevalence") +
+  xlab("Year") +
+  theme_bw() +
+  theme(strip.text = element_text(size = 13), axis.text = element_text(size = 13),
+        axis.title = element_text(size = 13),
+        strip.background = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.position = "none") +
+  scale_y_continuous(breaks= seq(0, 35, 5)) +
+  facet_grid(rows = vars(SEX), cols = vars(age))
+
 get_prev <- function(t, a, p.Sex, rnd = 0){
-  a_ <- dt.endes_all[year %in% t & SEX == p.Sex, age]
-  p_ <- dt.endes_all[year %in% t & SEX == p.Sex, prev_logit.predicted]
-  #p.SE_ <- prev.predicted[Year %in% t & Sex == p.Sex, SE]
+  ln.p  <- predict(pmod, newdata = data.frame(year = t, age = a, SEX = p.Sex))
 
-  ln.p <- approx(a_, p_, xout = a, rule = 2)$y
-  #ln.p.SE <- approx(a_, p.SE_, xout = a, rule = 2)$y
+  p.SE_ <- dt.endes_all[year %in% t & SEX == p.Sex, SE]
+  a_    <- dt.endes_all[year %in% t & SEX == p.Sex, age]
+  p.SE  <- approx(a_, p.SE_, xout = a, rule = 2)$y
 
-  #return(expit(ln.p + rnd * ln.p.SE))
-  return(expit(ln.p))
+  return(pmax(0, expit(ln.p) + rnd * p.SE))
 }
+
+plot(20:80, get_prev(2023.5, 20:80, p.Sex = "Men", rnd = 0), ylim = c(0, 0.25))
+lines(20:80, get_prev(2023.5, 20:80, p.Sex = "Men", rnd = 1.96), ylim = c(0, 0.25))
+lines(20:80, get_prev(2023.5, 20:80, p.Sex = "Men", rnd = -1.96), ylim = c(0, 0.25))
 
 ### function returns change prevalence between survey years
 get_dp <- function(t1, t2, dp.a, dp.Sex, rnd.p.1 = 0, rnd.p.2 = 0){
@@ -91,14 +118,6 @@ get_p.mid <- function(t1, t2, p.a, dp.Sex, rnd.p.1 = 0, rnd.p.2 = 0){
   pt  <- 0.5 * (p2 + p1)
   return(pt)
 }
-
-#get_dp(t1 = 2016, t2 = 2017, dp.a = 65, dp.Sex = 1, rnd.p.1 = 0, rnd.p.2 = 0)
-#p1 <- get_prev(2016, 65-0.5, p.Sex = 1)
-#p2 <- get_prev(2017, 65+0.5, p.Sex = 1)
-#(p2 - p1) / 1
-
-#get_p.mid(t1 = 2016, t2 = 2017, p.a = 65, dp.Sex = 1, rnd.p.1 = 0, rnd.p.2 = 0)
-#0.5 * (p2 + p1)
 
 ## 1.3 Data and function for mortality rate ratio (diab vs. no diab) ----
 # MRR function as in India paper
@@ -170,9 +189,9 @@ plt.heat <- ggplot(data = gen_mort, aes(x = Time, y = Age, fill = log(Value))) +
 # 2. Estimate incidence ----
 
 ### create matrix to store the results
-out.ages <- 20:90 # age range in years
-out.years <- 2021 #seq(2016, 2022, 2) # year of incidence estimation
-svy.years <- c(2019, 2023) #seq(2015, 2023, 2) # ENDES survey years
+out.ages <- 15:90 # age range in years
+out.years <- seq(2016, 2023, 1) # year of incidence estimation
+svy.years <- seq(2015.5, 2023.5, 1) # ENDES survey years
 nboots <- 2 # no. of repetitions
 
 i.res <- array(dim = c(length(out.ages), length(svy.years) - 1, 2, nboots),
@@ -221,8 +240,8 @@ dt.incidence[ , c("age", "Year") := lapply(.SD, as.numeric),
 
 ### calculate median and 95-% confidence intervals
 dt.incidence.CI <- dt.incidence[ , .(inc = median(incidence),
-                                     inc.lcl = quantile(incidence, probs = 0.025),
-                                     inc.ucl = quantile(incidence, probs = 0.975)),
+                                     inc.lcl = quantile(incidence, probs = 0.4),
+                                     inc.ucl = quantile(incidence, probs = 0.6)),
                                  by = .(age, Year, Sex)]
 
 ### change type of age and year to numeric
@@ -236,7 +255,7 @@ plt.inc <- ggplot(data = dt.incidence.CI[age < 81],
                   aes(x = age, y = inc * 1000,
                       color = factor(Sex, levels = c("Women", "Men")),
                       fill = factor(Sex, levels = c("Women", "Men")))) +
-  geom_line(linewidth = 1) +
+  geom_line(linewidth = 0.8) +
   geom_ribbon(aes(ymin = inc.lcl * 1000, ymax = inc.ucl * 1000), alpha = 0.3,
               show.legend = FALSE) +
   facet_wrap(vars(Year)) +
@@ -246,7 +265,11 @@ plt.inc <- ggplot(data = dt.incidence.CI[age < 81],
   scale_color_brewer(palette = "Set1") +
   scale_fill_brewer(palette = "Set1") +
   theme(legend.title = element_blank(), strip.background = element_blank(),
-        strip.text = element_text(size = 13),
-        axis.text = element_text(size = 13),
-        axis.title = element_text(size = 13),
-        legend.text = element_text(size = 13))
+        strip.text = element_text(size = 11),
+        axis.text = element_text(size = 11),
+        axis.title = element_text(size = 11),
+        legend.text = element_text(size = 11))
+
+ggsave("plt.inc.tiff", plt.inc, compression = "lzw", height = 10, width = 20, units = "cm")
+
+

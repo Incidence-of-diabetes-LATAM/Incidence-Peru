@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>protocol</title>
+<title>Research Protocol Incidence of Diabetes in Peru</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,31 +72,54 @@ window.Quarto = {
 
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Research Protocol Incidence of Diabetes in Peru</h1>
+</div>
 
 
 
-<p>#Research Protocol #Incidence of Diabetes in Peru</p>
-<p>#Introduction</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p>Diabetes mellitus (DM) is a chronic non-communicable disease characterized by high blood glucose levels as a result of a multifactorial process that leads to β cell failure and a deficient response in insulin action (1). It currently represents a global public health problem with a high burden of mortality and morbidity, which translates into significant socio-economic consequences for the health care system. It is estimated that the average medical cost of people diagnosed with DM is 2.3 times higher compared to people without a diagnosis of DM (2).</p>
 <p>Research has shown that the incidence of DM has increased significantly in recent decades. Incident cases are estimated to have increased by 102.9% from 1990 to 2017, with an age-standardized rate from 234/100,000 for 1990 to 285/100,000 people in 2017 (3). This increase is potentially attributed to several factors such as lifestyle, eating habits, access to medical care and the high prevalence of risk factors such as overweight, obesity and sedentary lifestyle in different geographical regions (4). It has even been shown that the prevalence of DM in low- and middle-income countries has increased much faster compared to high-income countries (5).</p>
 <p>Thus, in the case of South and Central America, according to estimates by the International Diabetes Federation, the number of people with DM is projected to increase by 46% to 52 million by 2050 (6). Specifically for Peru, a study with 3.8 years of follow-up found a weighted cumulative incidence of DM of 7.2% and a weighted incidence rate of 19.5 (95% CI 13.9 to 28.3) new cases per 1,000 person-years. These results indicate that the incidence of DM in Peru is among the highest reported worldwide (7). However, reports on the incidence of DM in Peru remain limited and are mainly based on urban populations.</p>
 <p>For this reason, the objective of this study is to estimate the incidence rates of DM specific by age and sex, as well as the age-standardized incidence rates in Peru for the years 2018 to 2023, using a disease-death model with nationally representative data that allows increasing the understanding of the dynamics of DM in Peru and identifying risk groups that can benefit from possible interventions of prevention.</p>
-<p>#Methods</p>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
 <p>An observational study will be carried out with cross-sectional data from the Demographic and Family Health Surveys (ENDES) from 2018 to 2023. Based on these surveys, the prevalent cases of DM at the national level in Peru will be identified. The ENDES survey is carried out annually and is representative of the entire territory of Peru, which generates information on demographic dynamics, health status of mothers and children under 5 years of age, communicable diseases and non-communicable diseases, among other aspects. The target population consists of households and their respective resident members, in which data is collected by trained personnel who visit the selected households. The instruments for collecting information vary from interviews to laboratory measurements (8).</p>
 <p>To identify the prevalent cases of DM from the ENDES survey, the question will be used as an indicator: Has a doctor ever diagnosed you with diabetes or “high sugar” in your blood? This question presents the following answer options: yes, no, don’t know/don’t remember (8). For the analyses, only participants who have answered with the options “yes” or “no” will be included, excluding those whose answer has been “do not know/do not remember”.</p>
-<p>Subsequently, the age-specific prevalence of DM will be estimated according to sex. The age groups will be categorized into five-year periods from 15-19 years to 90-95 years with their respective 95% confidence interval using the method of log-transformed intervals. Additionally, data from vital statistics from the National Institute of Statistics and Informatics (INEI) will be used to obtain the mortality rate in the general population for the years 2018 to 2023. Based on these results, the mortality rate ratio (MRR) will be calculated, which is defined as the quotient between the mortality rates of people with and without DM. Both the data from the ENDES survey and the vital statistics records are freely accessible.</p>
-<p>To estimate the incidence rate of DM for the years 2018 to 2023, a disease-death model will be applied using a differential equation. This method has previously been used in the context of chronic non-communicable diseases (9,10). This model is based on a mathematical relationship between the prevalence of DM by age, mortality rates in the general population, and MRR. The transition between these states is characterized by incidence rate (no diabetes → diabetes) and death rates (no diabetes → death; diabetes → death).</p>
-<p>The partial differential equation used to estimate the incidence of DM was developed by Brinks and Landwehr (9) and describes the temporal variation in prevalence with respect to age and calendar time. The equation is described below:</p>
-<p><span class="math inline">\(i = \frac{\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p}{1 - p} + m \cdot \frac{p (MRR - 1)}{p (MRR - 1) + 1}\)</span></p>
-<p>Figure 1. Partial differential equation for estimating the incidence.</p>
+<p>Subsequently, the age-specific prevalence of DM will be estimated by age and sex for the years 2015 to 2023. The age groups will be categorized into five-year periods from 15-19 years to 90-95 years with their respective 95% confidence interval using the method of log-transformed intervals. Additionally, data from the United Nations World Population Prospects will be used to obtain the mortality rate in the general population for the years 2015 to 2023. For estimating incidence using the approach described below, information on the mortality rate ratio (MRR) for people with vs.&nbsp;without diabetes is needed. Since no studies estimated the MRR for Peru so far, we will model several scenarios and vary the MRR within a plausible range, as was done in previous studies (Silverman-Retana et al.&nbsp;2024). Both the data from the ENDES survey and the United Nations World Population Prospects are freely accessible.</p>
+<p>To estimate the incidence rate of DM for the years 2018 to 2023, an illness-death model will be applied using a partial differential equation. This method has previously been used in the context of chronic non-communicable diseases (9,10). This model is based on a mathematical relationship between the prevalence of DM, the mortality rate in the general population, and the MRR. The transition between these states is characterized by the incidence rates (no diabetes → diabetes) and mortality rates rates (no diabetes → death; diabetes → death).</p>
+<p>The partial differential equation used to estimate the incidence of DM was developed by Brinks and Landwehr (9) and describes the change in prevalence with respect to age and calendar time:</p>
+<p><span id="eq-PDE"><span class="math display">\[
+i = \frac{\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p}{1 - p} + m \cdot \frac{p (MRR - 1)}{p (MRR - 1) + 1}
+\tag{1}\]</span></span></p>
 <p>Where <span class="math inline">\(i\)</span> represents the incidence of DM, <span class="math inline">\(p\)</span> represents the prevalence of DM, <span class="math inline">\(\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p\)</span> indicates the temporal change in the prevalence of DM as a function of age groups <span class="math inline">\(a\)</span> and calendar time <span class="math inline">\(t\)</span>. Additionally, <span class="math inline">\(m\)</span> reflects the mortality rate of the general population and <span class="math inline">\(MRR\)</span> the mortality rate ratio. Therefore, the incidence rate can be calculated from estimates for the prevalence of DM, its temporal change according to age and calendar time, the overall mortality rate, and the ratio of mortality rates between people with and without DM.</p>
 <p>All statistical analyses will be performed in the R software version 4.5.0 and your R-studio environment (11).</p>
-<p>#Discussion</p>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
 <p>According to estimates by different international organizations, reported cases of DM are increasing considerably, including developing countries such as Peru. Even projections in terms of disease burden indicate a worrying picture in terms of public health and health system spending (6). In this scenario, it is essential to carry out research and surveillance programs of the epidemiological profile of DM at the national level to understand the complex dynamics of the burden of the disease and to be able to establish public health actions aimed at the prevention and control of DM (12).</p>
 <p>However, in many cases, especially in Latin American countries, it is not possible to have follow-up data at the individual level that would allow a more direct estimate of the incidence of DM. For this reason, it is proposed in this research to apply the disease-death model to estimate the incidence of DM, using prevalence data from nationally representative surveys and mortality data from official statistics.</p>
 <p>This model has been applied to DM data in other studies in the Latin American population. Silverman et al calculated the incidence rate of age-specific DM for Mexico in 2003, 2009, and 2015 according to sex. For example, the authors found a 78% and 63% increase in the incidence of DM among women in the 40-49 and 50-59 age groups for the years 2003 and 2015 (13).</p>
 <p>However, this research protocol has some limitations, such as, for example, the data from the ENDES survey are based on self-reported diabetes status and therefore may reflect possible information bias. Additionally, it is not possible to distinguish between type 1 DM and type 2 DM, which is important given the increase in the incidence of type 1 DM that has been reported in recent years (14). However, the strengths of the research are recognized since it uses nationally representative survey data from a wide period of time. Thus, one of the first studies that manages to estimate the incidence of DM in Peru based on a national sample.</p>
-<p>#References</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
 <ol type="1">
 <li><p>Ong KL, Stafford LK, McLaughlin SA, Boyko EJ, Vollset SE, Smith AE, et al.&nbsp;Global, regional, and national burden of diabetes from 1990 to 2021, with projections of prevalence to 2050: a systematic analysis for the Global Burden of Disease Study 2021. Lancet. 2023;402(10397):203–34.</p></li>
 <li><p>Balooch Hasankhani M, Mirzaei H, Karamoozian A. Global trend analysis of diabetes mellitus incidence, mortality, and mortality-to-incidence ratio from 1990 to 2019. Sci Rep [Internet]. 2023;13(1):1–8. Available from: https://doi.org/10.1038/s41598-023-49249-0</p></li>
@@ -113,6 +136,7 @@ window.Quarto = {
 <li><p>Silverman-Retana O, Brinks R, Hoyer A, Witte DR, Tönnies T. Using the illness-death model to estimate age- and sex-standardized incidence rates of diabetes in Mexico from 2003 to 2015. BMC Public Health. 2024;24(1):1–6.</p></li>
 <li><p>Gregory GA, Robinson TIG, Linklater SE, Wang F, Colagiuri S, de Beaufort C, et al.&nbsp;Global incidence, prevalence, and mortality of type 1 diabetes in 2021 with projection to 2040: a modelling study. Lancet Diabetes Endocrinol. 2022;10(10):741–60.</p></li>
 </ol>
+</section>
 
 </main>
 <!-- /main column -->

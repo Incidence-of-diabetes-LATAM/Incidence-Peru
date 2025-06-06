@@ -33,6 +33,7 @@ author:
   affilliations: Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany
 bibliography: references.bib
 csl: ama.csl
+#output: pdf_document
 ---
 
 # Introduction

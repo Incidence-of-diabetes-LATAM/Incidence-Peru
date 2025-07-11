@@ -1,5 +1,6 @@
 ---
 title: "Age- and sex-standardised incidence of diabetes mellitus in Peru from 2016 to 2023"
+format: pdf
 author:
 - name: Carlos J. Toro-Huamanchumo
   orcid: 0000-0002-4664-2856
@@ -12,31 +13,28 @@ author:
   email: jossil@rm.dk
   affilliations: Steno Diabetes Center Aarhus, Aarhus University Hospital, Aarhus, Denmark. Department of Public Health, Aarhus University, Aarhus, Denmark
 - name: Juan Pablo Perez Bedolla
-  #orcid:
+  orcid: 0000-0002-2474-6603
   corresponding: false
   email: juan.perez42@udea.edu.co
   affilliations: Universidad de Antioquia, Medellin, Colombia
 - name: Daniel R. Witte
-  #orcid:
+  orcid: 0000-0002-0769-2922
   corresponding: false
   email: daniel.witte@ph.au.dk
   affilliations: Steno Diabetes Center Aarhus, Aarhus University Hospital. Department of Public Health, Aarhus University, Aarhus, Denmark
 - name: Ralph Brinks
-  #orcid:
+  orcid: 0000-0003-0961-6592
   corresponding: false
   email: Ralph.Brinks@uni-wh.de
   affilliations: Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany. Medical Biometry and Epidemiology, Faculty of Health/School of Medicine, Witten/Herdecke University, Witten, Germany
 - name: Thaddäus Tönnies
-  #orcid:
+  orcid: 0000-0003-1577-4212
   corresponding: false
   email: thaddaeus.toennies@ddz.de
   affilliations: Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany
+
 bibliography: references.bib
 csl: ama.csl
-#output: pdf_document
-editor: 
-  markdown: 
-    wrap: sentence
 ---
 
 # Introduction
@@ -44,7 +42,7 @@ editor:
 The incidence of diabetes mellitus (DM) has increased significantly in recent decades with an age-standardised rate rising from 234 per 100,000 people in 1990 to 285 per 100,000 in 2017 [@liuTrendsIncidenceDiabetes2020].
 According to estimates by the International Diabetes Federation, the number of people living with DM in South and Central America is projected to increase to 52 million by 2050 [@internationaldiabetesfederationIDFDiabetesAtlas2021].
 
-Findings from a Peruvian study showed a cumulative incidence of DM of 7.2% and an incidence rate of 19.5 (95% confidence interval [CI] 13.9 - 28.3) new cases per 1,000 person-years. These results indicate that the incidence in Peru is among the highest reported worldwide [@seclenElevatedIncidenceRates2017] (7).
+Findings from a Peruvian study showed a cumulative incidence of DM of 7.2% and an incidence rate of 19.5 (95% confidence interval [CI] 13.9 - 28.3) new cases per 1,000 person-years. These results indicate that the incidence in Peru is among the highest reported worldwide [@seclenElevatedIncidenceRates2017].
 However, reports on DM incidence in Peru remain limited, and the few available studies have been conducted primarily in urban populations.
 
 The objective of this study is to estimate age-specific, sex-specific, and age-standardised incidence rates of diabetes in Peru between 2016 and 2023 by implementing the illness–death model.

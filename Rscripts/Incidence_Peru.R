@@ -240,8 +240,8 @@ dt.incidence[ , c("age", "Year") := lapply(.SD, as.numeric),
 
 ### calculate median and 95-% confidence intervals
 dt.incidence.CI <- dt.incidence[ , .(inc = median(incidence),
-                                     inc.lcl = quantile(incidence, probs = 0.4),
-                                     inc.ucl = quantile(incidence, probs = 0.6)),
+                                     inc.lcl = quantile(incidence, probs = 0.025),
+                                     inc.ucl = quantile(incidence, probs = 0.975)),
                                  by = .(age, Year, Sex)]
 
 ### change type of age and year to numeric

@@ -1,4 +1,4 @@
-rm(list = ls())
+rm(list = ls()) #only delete stuff in the visible environment; the best approach is to restart the session
 
 # load packages
 library(readxl)
@@ -280,5 +280,6 @@ plt.inc <- ggplot(data = dt.incidence.CI[age < 81],
         legend.text = element_text(size = 10))
 
 ggsave("plt.inc_withCI.tiff", plt.inc, compression = "lzw", height = 10, width = 20, units = "cm")
+ggsave("plt_inc_withCI.svg", plt.inc, height = 10, width = 20, units = "cm")
 
-
+#the best graphic representation of data is svg--the resolution is better

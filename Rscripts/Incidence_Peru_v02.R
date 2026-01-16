@@ -281,5 +281,7 @@ plt.inc <- ggplot(data = dt.incidence.CI[age < 81],
 
 ggsave("plt.inc_withCI.tiff", plt.inc, compression = "lzw", height = 10, width = 20, units = "cm")
 ggsave("plt_inc_withCI.svg", plt.inc, height = 10, width = 20, units = "cm")
+ggsave("plt_inc_withCI.pdf", plt.inc, height = 10, width = 20, units = "cm")
+ggsave("plt_inc_withCI.png", plt.inc, height = 10, width = 20, units = "cm")
 
 #the best graphic representation of data is svg--the resolution is better

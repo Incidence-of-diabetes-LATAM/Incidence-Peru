@@ -35,6 +35,7 @@ author:
 bibliography: references.bib
 csl: ama.csl
 ---
+<!--change the format to docx-->
 <!-- We agreed to submit the manuscript as a preprint first, but we should save time and effort, so let's format the manuscript for Diabetes Research and clinical practice. Carlos you need to add your Full postal address by the end of line 9.
 Here we can check the author guidelines: https://www.diabetesresearchclinicalpractice.com/content/authorinfo
 Research article designated as Epidemiology (maximum word count 5000 words). The word limit includes a combined total of five figures or tables with legends -->
@@ -121,7 +122,8 @@ Table 1. Description of the Demographic and Family Health Surveys (ENDES) from P
 
 Figure 1. Age and sex specific prevalence of diabetes in Peru for the years 2018-2023
 
-[Figure 2. Age and sex-specific incidence rates of diabetes in Peru from the years 2018-2023](plt_inc_withCI.svg)
+![Figure 2. Age and sex-specific incidence rates of diabetes in Peru from the years 2018-2023](plt_inc_withCI.png)
+
 
 Table 2. Age-standardized and age-specific incidence rates of diabetes (95% CI) per 1,000 pryr for men and women in Peru from the years 2018-2023, and the temporal change in incidence rates
 

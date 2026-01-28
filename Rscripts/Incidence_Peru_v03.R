@@ -68,6 +68,7 @@ plt.input_prev <- ggplot(data = dt.endes_all, aes(x = age, y = expit(prev_logit.
   facet_grid(rows = vars(SEX), cols = vars(year))
 
 ggsave("Results/plt.input_prev.tiff", plt.input_prev, compression = "lzw", height = 10, width = 20, units = "cm")
+ggsave("Results/plt.input_prev.png", height = 10, width = 20, units = "cm")
 
 get_prev <- function(t, a, p.Sex){
   ln.p  <- expit(predict(pmod, newdata = data.frame(year = t, age = a, SEX = p.Sex)))
@@ -217,6 +218,7 @@ plt.inc_age <- ggplot(data = dt.incidence.CI,
         legend.text = element_text(size = 10))
 
 ggsave("Results/plt.inc_age.tiff", plt.inc_age, compression = "lzw", height = 12, width = 20, units = "cm")
+ggsave("Results/plt.inc_age.png", height = 12, width = 20, units = "cm")
 
 
 ## 2.1 Estimate age-standardized incidence rate ----
@@ -273,6 +275,7 @@ dt.incidence.standardized.CI <- dt.incidence.standardized[ ,
 # incidence rate ratio (IRR) with 95%-CI (IRR.lcl, IRR.ucl). The IRRs indicate the temporal trend in
 # in incidence with 2016 as the reference year.
 write.table(dt.incidence.standardized.CI, file = "Results/inc.standardized.csv")
+saveRDS(dt.incidence.standardized.CI, file = "inc.standardized.rds")
 
 # plot for temporal trend in age-standardized incidence
 plt.standardized <- ggplot(data = dt.incidence.standardized.CI,
@@ -282,7 +285,7 @@ plt.standardized <- ggplot(data = dt.incidence.standardized.CI,
   geom_line(linewidth = 0.8) +
   geom_ribbon(aes(ymin = inc.lcl * 1000, ymax = inc.ucl * 1000), alpha = 0.2,
               show.legend = FALSE) +
-  xlab("Age in years") +
+  xlab("Calendar years") +
   ylab("Incidence per 1,000 person years") +
   ylim(c(0,17)) +
   theme_bw() +
@@ -295,7 +298,10 @@ plt.standardized <- ggplot(data = dt.incidence.standardized.CI,
         legend.text = element_text(size = 11))
 
 ggsave("Results/plt.standardized.tiff", plt.standardized, compression = "lzw", height = 10, width = 20, units = "cm")
+ggsave("Results/plt.standardized.png", height = 10, width = 20, units = "cm")
 
+library(patchwork)
+(plt.standardized | plt.inc_age) + plot_layout(guides ="collect") & theme(legend.position = "right")
 
 ## 2.2 Incidence in 10 year age steps and incidence rate ratios for temporal trend ----
 dt.inc.10yearage <- dt.incidence.weights[age %in% seq(20, 80, 10) & Year %in% c(2016, 2023)]
@@ -335,4 +341,5 @@ dt.inc.10yearage.CI <- dt.inc.10yearage[ ,
 # incidence rate ratio (IRR) with 95%-CI (IRR.lcl, IRR.ucl). The IRR indicates the temporal trend in
 # in incidence comparin inc in 2023 vs 2016.
 write.table(dt.inc.10yearage.CI, file = "Results/inc.agespecific.csv")
+saveRDS(dt.inc.10yearage.CI, file = "inc.agespecific.rds")
 

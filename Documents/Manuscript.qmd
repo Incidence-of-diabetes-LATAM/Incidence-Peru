@@ -118,15 +118,115 @@ This work was supported by the National Institutes of Health [grant numbers xxxx
 
 # Figures and Tables with legends
 
-Table 1. Description of the Demographic and Family Health Surveys (ENDES) from Peru for the period 2018–2023
-
-Figure 1. Age and sex specific prevalence of diabetes in Peru for the years 2018-2023
-
-![Figure 2. Age and sex-specific incidence rates of diabetes in Peru from the years 2018-2023](plt_inc_withCI.png)
+## Table 1. Description of the Demographic and Family Health Surveys (ENDES) from Peru for the period 2018–2023
+<!--We need to insert a descriptive table here -->
 
 
-Table 2. Age-standardized and age-specific incidence rates of diabetes (95% CI) per 1,000 pryr for men and women in Peru from the years 2018-2023, and the temporal change in incidence rates
+{{< pagebreak >}}
 
+## Figure 1. Age and sex-specific prevalence of diabetes in Peru for the years 2016-2023
+![Figure 1. Age and sex-specific prevalence of diabetes in Peru for the years 2016-2023](plt.input_prev.png)
+{{< pagebreak >}}
+
+## Figure 2. Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023
+![Figure 2. Age and sex-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023](plt.standardized.png)
+
+{{< pagebreak >}}
+
+## Table 2. Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
+```{r Table 2, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
+library(tidyverse)
+library(gtsummary)
+library(flextable)
+
+inc_standardized <- readRDS(file = here::here("Data/inc.standardized.rds"))
+
+inc_standardized_tbl <- inc_standardized |> 
+  mutate(
+    Sex = factor(Sex, levels = c("Men", "Women")),
+    Year = as.factor(Year),
+
+    # Scale incidence to per 1,000 PY
+    inc = inc * 1000,
+    inc.lcl = inc.lcl * 1000,
+    inc.ucl = inc.ucl * 1000
+  )
+
+inc_standardized_tbl <- inc_standardized_tbl  |> 
+  mutate(
+    `IR (95% CI)` =
+      sprintf("%.2f (%.2f–%.2f)", inc, inc.lcl, inc.ucl),
+
+    `IRR (95% CI)` =
+      sprintf("%.2f (%.2f–%.2f)", IRR, IRR.lcl, IRR.ucl)
+  ) |> 
+  select(Sex, Year,
+         `IR (95% CI)`,
+         `IRR (95% CI)`)
+
+inc_wide <- inc_standardized_tbl  |> 
+  pivot_wider(
+    names_from = Sex,
+    values_from = c(`IR (95% CI)`, `IRR (95% CI)`),
+    names_glue = "{Sex} – {.value}"
+  ) |> 
+  relocate("Women – IR (95% CI)",.after = "Men – IRR (95% CI)")
+
+inc_wide_ft <- inc_wide  |> 
+  flextable()  |> 
+  autofit()
+
+inc_wide_ft
+```
+{{< pagebreak >}}
+
+## Figure 2. Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023
+![Figure 2. Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023](plt.inc_age.png)
+ {{< pagebreak >}}
+ 
+## Table 3 Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
+```{r Table 3, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
+inc_agespecific <- readRDS(file = here::here("Data/inc.agespecific.rds"))
+inc_agespecific_tbl <- inc_agespecific |> 
+  mutate(
+    Sex = factor(Sex, levels = c("Men", "Women")),
+    Year = as.factor(Year),
+    age = as.factor(age),
+    # Scale incidence to per 1,000 PY
+    inc = inc * 1000,
+    inc.lcl = inc.lcl * 1000,
+    inc.ucl = inc.ucl * 1000
+  )
+
+
+inc_agespecific_tbl <- inc_agespecific_tbl  |> 
+  mutate(
+    `IR (95% CI)` =
+      sprintf("%.2f (%.2f–%.2f)", inc, inc.lcl, inc.ucl),
+
+    `IRR (95% CI)` =
+      sprintf("%.2f (%.2f–%.2f)", IRR, IRR.lcl, IRR.ucl)
+  ) |> 
+  select(Sex, age, Year,
+         `IR (95% CI)`,
+         `IRR (95% CI)`)
+
+inc_agespecific_wide <- inc_agespecific_tbl  |> 
+  pivot_wider(
+    names_from = Sex,
+    values_from = c(`IR (95% CI)`, `IRR (95% CI)`),
+    names_glue = "{Sex} – {.value}"
+  )
+
+inc_agespecific_wide <- inc_agespecific_wide |> 
+  relocate("Women – IR (95% CI)", .after = "Men – IRR (95% CI)")
+
+inc_agespecific_wide_ft <- inc_agespecific_wide  |> 
+  flextable()  |> 
+  autofit()
+
+inc_agespecific_wide_ft
+```
 {{< pagebreak >}}
 
 # References

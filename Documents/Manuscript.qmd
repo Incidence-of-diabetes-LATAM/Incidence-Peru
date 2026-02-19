@@ -100,6 +100,10 @@ All statistical analyses will be performed in the R software version 4.5.0 [@rco
 
 # Results
 
+During the study period, XXX participants from the ENDES population survey were included; of these, XXX (%) reported having been diagnosed with diabetes by their treating physician (Table 1). Figure 1 shows the prevalence of diabetes by age and sex, estimated from ENDES data using logit-transformed prevalence estimates. These estimates were used as input variables in the statistical model described above, along with the general population mortality rate and the MRR, to obtain the diabetes incidence rate for each year of analysis by sex (Figure 2) and the age-specific rate by sex for each year of analysis (Figure 3).
+
+
+
 # Discussion
 
 Understanding the epidemiological profile of DM in the Peruvian population is essential for informing public health strategies aimed at prevention and control [@internationaldiabetesfederationHowRegistriesCan2024]. There is a lack of cohort studies conducted in Latin American countries, which makes it unfeasible to directly estimate the incidence of DM. For this reason, this study will apply the illness-death model to estimate diabetes incidence  using prevalence data from nationally representative surveys and mortality data from official vital statistics. This model has previously been implemented with Mexican data to calculate DM incidence rates for the period 2003-2015 [@silverman-retanaUsingIllnessdeathModel2024].

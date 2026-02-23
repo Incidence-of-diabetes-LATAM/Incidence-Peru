@@ -125,6 +125,18 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+\usepackage{fontspec}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage{hhline}
+\newlength\Oldarrayrulewidth
+\newlength\Oldtabcolsep
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{wrapfig}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -317,6 +329,37 @@ All statistical analyses will be performed in the R software version
 
 \section{Results}\label{results-1}
 
+During the study period, XXX participants from the ENDES population
+survey were included; of these, XXX (\%) reported having been diagnosed
+with diabetes by their treating physician (Table 1). Figure 1 shows the
+prevalence of diabetes by age and sex, estimated from ENDES data using
+logit-transformed prevalence estimates. These estimates were used as
+input variables in the statistical model described above, along with the
+general population mortality rate and the MRR, to obtain the diabetes
+incidence rate for each year of analysis by sex (Figure 2) and the
+age-specific rate by sex for each year of analysis (Figure 3).
+
+Between 2016 and 2023, the age-standardized incidence rate (IR) of
+diabetes showed a sustained increase in both sexes. Among men, the IR
+rose from 4.46 (95\% CI: 3.61 to 5.23) in 2016 to 8.58 (95\% CI: 5.27 to
+14.41) in 2023, corresponding to an incidence rate ratio (IRR) of 1.93
+(95\% CI: 1.14 to 3.24) compared with 2016. Similarly, among women, the
+IR increased from 5.20 (95\% CI: 4.27 to 6.19) in 2016 to 9.87 (95\% CI:
+6.16 to 16.07) in 2023, with an IRR of 1.92 (95\% CI: 1.15 to 3.16)
+relative to the reference year (Table 2).
+
+When stratified by age group and calendar period, the IR increased
+between 2016 and 2023 across all age groups in both sexes. The oldest
+age groups exhibited the highest IRs in the population, reaching in 2023
+an IR of 22.54 (95\% CI: 13.49 to 36.57) among 60-year-old men and 25.76
+(95\% CI: 16.10 to 43.11) among 60-year-old women. However, analysis of
+the IRR indicated that the largest and statistically significant
+relative increases occurred in the younger age groups. Specifically,
+among 20-year-olds, the IRR was 2.18 (95\% CI: 1.00 to 4.21) in men and
+2.16 (95\% CI: 1.03 to 4.28) in women, while the 30-year-old group
+showed a similar pattern, with IRRs of 2.13 (95\% CI: 1.17 to 3.76) and
+2.11 (95\% CI: 1.25 to 3.52), respectively (Table 3).
+
 \section{Discussion}\label{discussion}
 
 Understanding the epidemiological profile of DM in the Peruvian
@@ -342,7 +385,7 @@ may inform public health planning and resource allocation.
 
 \section{Acknowledgements}\label{acknowledgements}
 
-\subsection{Funding}\label{funding}
+\section{Funding}\label{funding}
 
 This work was supported by the National Institutes of Health {[}grant
 numbers xxxx, yyyy{]}; the Bill \& Melinda Gates Foundation, Seattle, WA
@@ -354,18 +397,242 @@ numbers xxxx, yyyy{]}; the Bill \& Melinda Gates Foundation, Seattle, WA
 \section{Figures and Tables with
 legends}\label{figures-and-tables-with-legends}
 
-Table 1. Description of the Demographic and Family Health Surveys
-(ENDES) from Peru for the period 2018--2023
+\subsection{Table 1. Description of the Demographic and Family Health
+Surveys (ENDES) from Peru for the period
+2018--2023}\label{table-1.-description-of-the-demographic-and-family-health-surveys-endes-from-peru-for-the-period-20182023}
 
-Figure 1. Age and sex specific prevalence of diabetes in Peru for the
-years 2018-2023
+\newpage{} \includegraphics{plt.input_prev.png} \newpage{}
+\includegraphics{plt.standardized.png}
 
-\href{plt_inc_withCI.svg}{Figure 2. Age and sex-specific incidence rates
-of diabetes in Peru from the years 2018-2023}
+\newpage{}
 
-Table 2. Age-standardized and age-specific incidence rates of diabetes
-(95\% CI) per 1,000 pryr for men and women in Peru from the years
-2018-2023, and the temporal change in incidence rates
+\subsection{Table 2. Age-standardized incidence rates of diabetes for
+men and women in Peru for the years 2016-2023, and the temporal change
+in incidence rates between 2016 and
+2023}\label{table-2.-age-standardized-incidence-rates-of-diabetes-for-men-and-women-in-peru-for-the-years-2016-2023-and-the-temporal-change-in-incidence-rates-between-2016-and-2023}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{2pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable*}[c]{|p{0.63in}|p{1.55in}|p{1.66in}|p{1.78in}|p{1.89in}}
+
+
+
+\ascline{1.5pt}{666666}{1-5}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Year}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IRR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IRR\ (95\%\ CI)}}}} \\
+
+\ascline{1.5pt}{666666}{1-5}\endfirsthead 
+
+\ascline{1.5pt}{666666}{1-5}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Year}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IRR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IRR\ (95\%\ CI)}}}} \\
+
+\ascline{1.5pt}{666666}{1-5}\endhead
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{4.46\ (3.61–5.23)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{5.20\ (4.27–6.19)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2017}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{4.93\ (3.78–5.98)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.10\ (0.81–1.45)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{5.74\ (4.38–7.25)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.11\ (0.81–1.50)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2018}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{5.39\ (4.10–6.79)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.21\ (0.90–1.64)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6.27\ (4.65–8.14)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.21\ (0.87–1.65)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2019}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{5.98\ (4.14–7.99)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.34\ (0.89–1.90)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6.88\ (5.11–9.38)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.34\ (0.94–1.89)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2020}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{7.23\ (4.93–9.86)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.64\ (1.08–2.33)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{7.71\ (5.09–10.84)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.49\ (0.97–2.22)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2021}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{8.06\ (5.46–11.13)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.81\ (1.19–2.64)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{8.84\ (5.84–13.53)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.71\ (1.13–2.69)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2022}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{7.74\ (4.76–12.17)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.76\ (1.07–2.79)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{9.00\ (5.94–14.43)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.74\ (1.13–2.89)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.55in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{8.58\ (5.27–14.41)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.93\ (1.14–3.24)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{9.87\ (6.16–16.07)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.92\ (1.15–3.16)}}}} \\
+
+\ascline{1.5pt}{666666}{1-5}
+
+
+
+\end{longtable*}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\newpage{} \includegraphics{plt.inc_age.png} \newpage{}
+
+\subsection{Table 3. Age and sex-specific incidence rates of diabetes in
+Peru for the years 2016-2023, and the temporal change in incidence rates
+between 2016 and
+2023}\label{table-3.-age-and-sex-specific-incidence-rates-of-diabetes-in-peru-for-the-years-2016-2023-and-the-temporal-change-in-incidence-rates-between-2016-and-2023}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{2pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable*}[c]{|p{0.54in}|p{0.63in}|p{1.66in}|p{1.66in}|p{1.78in}|p{1.89in}}
+
+
+
+\ascline{1.5pt}{666666}{1-6}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{age}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Year}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IRR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IRR\ (95\%\ CI)}}}} \\
+
+\ascline{1.5pt}{666666}{1-6}\endfirsthead 
+
+\ascline{1.5pt}{666666}{1-6}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{age}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Year}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Men\ –\ IRR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IR\ (95\%\ CI)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{Women\ –\ IRR\ (95\%\ CI)}}}} \\
+
+\ascline{1.5pt}{666666}{1-6}\endhead
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{20}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{0.31\ (0.18–0.40)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{0.38\ (0.21–0.47)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{20}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{0.68\ (0.31–0.96)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.18\ (1.00–4.21)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{0.83\ (0.39–1.18)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.16\ (1.03–4.28)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{30}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{0.96\ (0.62–1.17)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.14\ (0.84–1.39)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{30}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.00\ (1.10–3.23)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.13\ (1.17–3.76)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.39\ (1.44–3.75)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.11\ (1.25–3.52)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{40}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.79\ (2.06–3.55)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{3.32\ (2.76–4.20)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{40}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{5.71\ (3.58–10.19)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.06\ (1.25–3.71)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6.83\ (4.58–11.70)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2.07\ (1.31–3.52)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{50}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6.89\ (5.82–8.23)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{8.17\ (7.07–10.18)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{50}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{13.74\ (8.96–23.81)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.99\ (1.29–3.46)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{16.26\ (11.14–27.22)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.99\ (1.29–3.40)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{60}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{12.20\ (9.39–14.60)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{13.88\ (10.83–17.87)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{60}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{22.54\ (13.49–36.57)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.86\ (1.13–3.22)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{25.76\ (16.10–43.11)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.87\ (1.09–3.18)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{70}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{12.10\ (8.08–14.79)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{13.42\ (9.20–17.05)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{70}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{21.63\ (11.32–35.29)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.80\ (0.89–3.39)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{23.39\ (12.77–38.65)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.77\ (0.88–3.21)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{80}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2016}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6.71\ (1.55–10.41)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6.46\ (1.57–10.79)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.00\ (1.00–1.00)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.54in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{80}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.63in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2023}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{12.17\ (2.41–24.43)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.66in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.86\ (0.38–8.62)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{11.18\ (1.44–23.72)}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1.74\ (0.24–6.97)}}}} \\
+
+\ascline{1.5pt}{666666}{1-6}
+
+
+
+\end{longtable*}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
 
 \newpage{}
 

@@ -35,10 +35,14 @@ author:
 bibliography: references.bib
 csl: ama.csl
 ---
+
 <!--change the format to docx-->
+
+```{=html}
 <!-- We agreed to submit the manuscript as a preprint first, but we should save time and effort, so let's format the manuscript for Diabetes Research and clinical practice. Carlos you need to add your Full postal address by the end of line 9.
 Here we can check the author guidelines: https://www.diabetesresearchclinicalpractice.com/content/authorinfo
 Research article designated as Epidemiology (maximum word count 5000 words). The word limit includes a combined total of five figures or tables with legends -->
+```
 
 {{< pagebreak >}}
 
@@ -47,7 +51,9 @@ Research article designated as Epidemiology (maximum word count 5000 words). The
 {{< pagebreak >}}
 
 # Abstract
+
 <!-- max 200 words -->
+
 ## Aims
 
 ## Methods
@@ -59,7 +65,9 @@ Research article designated as Epidemiology (maximum word count 5000 words). The
 <!-- The journal encourage including a graphical abstract. I think its a good idea and should be relatively easy to make -->
 
 ## Key words
+
 <!-- provide a maximum of 6 keywords -->
+
 Diabetes, epidemiology, disease burden, Peru
 
 {{< pagebreak >}}
@@ -68,7 +76,7 @@ Diabetes, epidemiology, disease burden, Peru
 
 The incidence of diabetes mellitus (DM) has increased significantly in recent decades with an age-standardised rate rising from 234 per 100,000 people in 1990 to 285 per 100,000 in 2017 [@liuTrendsIncidenceDiabetes2020]. According to estimates by the International Diabetes Federation, the number of people living with DM in South and Central America is projected to increase to 52 million by 2050 [@internationaldiabetesfederationIDFDiabetesAtlas2021].
 
-Findings from a Peruvian study showed a cumulative incidence of DM of 7.2% and an incidence rate of 19.5 (95% confidence interval [CI] 13.9 - 28.3) new cases per 1,000 person-years. These results indicate that the incidence in Peru is among the highest reported worldwide [@seclenElevatedIncidenceRates2017]. However, reports on DM incidence in Peru remain limited, and the few available studies have been conducted primarily in urban populations.
+Findings from a Peruvian study showed a cumulative incidence of DM of 7.2% and an incidence rate of 19.5 (95% confidence interval \[CI\] 13.9 - 28.3) new cases per 1,000 person-years. These results indicate that the incidence in Peru is among the highest reported worldwide [@seclenElevatedIncidenceRates2017]. However, reports on DM incidence in Peru remain limited, and the few available studies have been conducted primarily in urban populations.
 
 The objective of this study was to estimate age-specific, sex-specific, and age-standardised incidence rates of diabetes in Peru between 2016 and 2023 by implementing the illness–death model.
 
@@ -108,7 +116,7 @@ When stratified by age group and calendar period, the IR increased between 2016 
 
 # Discussion
 
-Understanding the epidemiological profile of DM in the Peruvian population is essential for informing public health strategies aimed at prevention and control [@internationaldiabetesfederationHowRegistriesCan2024]. There is a lack of cohort studies conducted in Latin American countries, which makes it unfeasible to directly estimate the incidence of DM. For this reason, this study will apply the illness-death model to estimate diabetes incidence  using prevalence data from nationally representative surveys and mortality data from official vital statistics. This model has previously been implemented with Mexican data to calculate DM incidence rates for the period 2003-2015 [@silverman-retanaUsingIllnessdeathModel2024].
+Understanding the epidemiological profile of DM in the Peruvian population is essential for informing public health strategies aimed at prevention and control [@internationaldiabetesfederationHowRegistriesCan2024]. There is a lack of cohort studies conducted in Latin American countries, which makes it unfeasible to directly estimate the incidence of DM. For this reason, this study will apply the illness-death model to estimate diabetes incidence using prevalence data from nationally representative surveys and mortality data from official vital statistics. This model has previously been implemented with Mexican data to calculate DM incidence rates for the period 2003-2015 [@silverman-retanaUsingIllnessdeathModel2024].
 
 This study has some limitations. Diabetes status is defined by self-report and therefore may introduce information bias. Additionally, it is not possible to distinguish between type 1 and type 2 diabetes, which is important given the increasing incidence of type 1 diabetes reported in recent years [@gregoryGlobalIncidencePrevalence2022]. On the other hand, a strength of this study is the use of nationally representative survey data from Peru. These findings will contribute recent estimates of diabetes incidence in Peru, which have not been previously reported and may inform public health planning and resource allocation.
 
@@ -118,24 +126,22 @@ This study has some limitations. Diabetes status is defined by self-report and t
 
 <!--This is the journal recommended formatting -->
 
-This work was supported by the National Institutes of Health [grant numbers xxxx, yyyy]; the Bill & Melinda Gates Foundation, Seattle, WA [grant number zzzz]; and the United States Institutes of Peace [grant number aaaa].
+This work was supported by the National Institutes of Health \[grant numbers xxxx, yyyy\]; the Bill & Melinda Gates Foundation, Seattle, WA \[grant number zzzz\]; and the United States Institutes of Peace \[grant number aaaa\].
 
 {{< pagebreak >}}
 
 # Figures and Tables with legends
 
 ## Table 1. Description of the Demographic and Family Health Surveys (ENDES) from Peru for the period 2018–2023
+
 <!--We need to insert a descriptive table here -->
 
-
-{{< pagebreak >}}
-![Age and sex-specific prevalence of diabetes in Peru for the years 2016-2023](plt.input_prev.png)
-{{< pagebreak >}}
-![Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023](plt.standardized.png)
+{{< pagebreak >}} ![Age and sex-specific prevalence of diabetes in Peru for the years 2016-2023](plt.input_prev.png) {{< pagebreak >}} ![Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023](plt.standardized.png)
 
 {{< pagebreak >}}
 
 ## Table 2. Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
+
 ```{r Table 2, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
 library(tidyverse)
 library(gtsummary)
@@ -180,11 +186,11 @@ inc_wide_ft <- inc_wide  |>
 
 inc_wide_ft
 ```
-{{< pagebreak >}}
-![Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023](plt.inc_age.png)
- {{< pagebreak >}}
- 
+
+{{< pagebreak >}} ![Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023](plt.inc_age.png) {{< pagebreak >}}
+
 ## Table 3. Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
+
 ```{r Table 3, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
 inc_agespecific <- readRDS(file = here::here("Data/inc.agespecific.rds"))
 inc_agespecific_tbl <- inc_agespecific |> 
@@ -227,6 +233,7 @@ inc_agespecific_wide_ft <- inc_agespecific_wide  |>
 
 inc_agespecific_wide_ft
 ```
+
 {{< pagebreak >}}
 
 # References

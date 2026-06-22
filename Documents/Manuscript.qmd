@@ -129,8 +129,7 @@ This project arose as part of the collaborative projects promoted within Steno D
 # Funding
 
 <!--This is the journal recommended formatting -->
-
-This work was supported by the National Institutes of Health \[grant numbers xxxx, yyyy\]; the Bill & Melinda Gates Foundation, Seattle, WA \[grant number zzzz\]; and the United States Institutes of Peace \[grant number aaaa\].
+The authors received no specific funding for this work. OSR, and DRW are financially supported by Steno Diabetes Center Aarhus, which is partially funded by an unrestricted donation from the Novo Nordisk Foundation, and by Public Health in Central Denmark Region - a collaboration between municipalities and the region (grant no. A2436)..
 
 {{< pagebreak >}}
 

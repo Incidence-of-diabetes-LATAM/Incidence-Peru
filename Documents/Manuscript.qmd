@@ -34,6 +34,9 @@ author:
   affilliations: Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany
 bibliography: incidence_peru.bib
 csl: ama.csl
+editor: 
+  markdown: 
+    wrap: 72
 citeproc: true
 ---
 
@@ -61,77 +64,346 @@ Diabetes, epidemiology, disease burden, Peru
 
 # 1. Introduction
 
-In 2024, the International Diabetes Federation (IDF) estimated that 588 million people aged 20-79 years were living with diabetes globally.[@maglianoDiabetesAtlas2025] The South and Central America region ranked 5th out of the seven IDF regions of the world in the prevalence of diabetes, the region has gone a rapid intensification of its epidemic as the age standardized prevalence of diabetes nearly tripled between 2000 and 2024, from 3.7% to 10.1%, and the number of adults aged 20 to 79 years living with diabetes grew from 8.6 million in 2000 to 35.4 million in 2024, and is projected to increase to 52 million by 2050.[@maglianoDiabetesAtlas2025]
+In 2025, the International Diabetes Federation (IDF) estimated that over
+588 million people aged 20-79 years were living with diabetes
+globally.[@maglianoDiabetesAtlas2025] The South and Central America
+region ranked 5th out of the seven IDF regions of the world in the
+prevalence of diabetes, the region has gone through a rapid
+intensification of its epidemic as the age standardized prevalence of
+diabetes nearly tripled between 2000 and 2024, from 3.7% to 10.1%, and
+the number of adults aged 20 to 79 years living with diabetes grew from
+8.6 million in 2000 to 35.4 million in 2024, and is projected to
+increase to 52 million by 2050.[@maglianoDiabetesAtlas2025]
 
-Peru is an upper middle-income economy situated in South America[@WorldBankGroup], the country has the 4th largest population in the region with around 34 million people living in the country in 2025.[@censo] Over the past decades, Peru has experienced a growth in the burden of non-communicable disease as the result of urbanization, population ageing, and the nutritional transition.[@villenaDiabetesMellitusPeru2015] Indeed, cardiovascular disease and diabetes were two of the top causes of death within the country in 2021.[@WHO_Peru_2026]
+Peru is an upper middle-income economy situated in South
+America[@WorldBankGroup], the country has the 4th largest population in
+the region with around 34 million people living in the country in
+2025.[@censo] Over the past decades, Peru has experienced a growth in
+the burden of non-communicable disease as the result of urbanization,
+population ageing, and the nutritional
+transition.[@villenaDiabetesMellitusPeru2015] Indeed, cardiovascular
+disease and diabetes were two of the top causes of death within the
+country in 2021.[@WHO_Peru_2026]
 
-Even though Peru is one of the South America countries with the lowest prevalence rates of diabetes in the region, these rates has been steadily increasing since 2005,[@vera-poncePrevalenceDiabetesPrediabetes2025] and according to the IDF Atlas, in 2024 the prevalence among adults 20-79 years was 6.0%.[@maglianoDiabetesAtlas2025] Moreover, the Global Burden of Disease Study estimated an age standardized incidence of diabetes that increased significantly between 1990 and 2017, with an age-standardized rate rising from 162 per 100,000 people in 1990 to 203 per 100,000 in 2017. [@liuTrendsIncidenceDiabetes2020] Evidence from Peru suggests a particularly high burden. The PERUDIAB study, an urban household cohort of adults aged 25 years or older reported a cumulative incidence of diabetes of 7.2% and an incidence rate of 19.5 new cases per 1,000 person-years \[95% confidence interval (95% CI) 13.9 - 28.3\]. [@seclenElevatedIncidenceRates2017]
+Even though Peru is one of the South American countries with the lowest
+prevalence rates of diabetes in the region, these rates has been
+steadily increasing since
+2005,[@vera-poncePrevalenceDiabetesPrediabetes2025] and according to the
+IDF Atlas, in 2024 the prevalence among adults 20-79 years was
+6.0%.[@maglianoDiabetesAtlas2025] Moreover, the Global Burden of Disease
+Study estimated an age standardized incidence of diabetes that increased
+significantly between 1990 and 2017, with an age-standardized rate
+rising from 162 per 100,000 people in 1990 to 203 per 100,000 in 2017.
+It should be noted that the NCD Risk Factor Collaboration has reported a
+prevalence of 17.5% for Peru (all ages) based on a Bayesian modeling
+approach using data that include HbA1c as a diagnostic criterion as well
+as non representative
+samples[@ncdriskfactorcollaboration(ncd-risc)2024].
 
-Reports on diabetes incidence in Peru remain limited, and the few available studies have been conducted primarily in urban populations. Direct estimation of incidence requires data from cohort studies, which are scarce in Peru and across Latin America. In this context an alternative is to estimate incidence rates of diabetes based on the mathematical relation between the age-specific prevalence of diabetes, the mortality rate of the general population, and the mortality rate ratio, an approach that has been validated for chronic conditions,[@brinksAgeTimedependentModel2014] and applied to a comparable Latin American setting.[@silverman-retanaUsingIllnessdeathModel2024] Therefore, the objective of this study was to estimate age-specific, sex-specific, and age-standardized incidence rates of diabetes in Peru between 2016 and 2023 by implementing the illness–death model.
+[@liuTrendsIncidenceDiabetes2020] Evidence from Peru suggests a
+particularly high burden. The PERUDIAB study, an urban household cohort
+of adults aged 25 years or older reported a cumulative incidence of
+diabetes of 7.2% and an incidence rate of 19.5 new cases per 1,000
+person-years \[95% confidence interval (95% CI) 13.9 - 28.3\].
+[@seclenElevatedIncidenceRates2017]
+
+Reports on diabetes incidence in Peru remain limited, and the few
+available studies have been conducted primarily in urban populations.
+Direct estimation of incidence requires data from cohort studies, which
+are scarce in Peru and across Latin America. In this context an
+alternative is to estimate incidence rates of diabetes based on the
+mathematical relation between the age-specific prevalence of diabetes,
+the mortality rate of the general population, and the mortality rate
+ratio, an approach that has been validated for chronic
+conditions,[@brinksAgeTimedependentModel2014] and applied to a
+comparable Latin American
+setting.[@silverman-retanaUsingIllnessdeathModel2024] Therefore, the
+objective of this study was to estimate age-specific, sex-specific, and
+age-standardized incidence rates of diabetes in Peru between 2016 and
+2023 by implementing the illness–death model.
 
 # 2. Subjects, Materials and Methods
 
 ## 2.1 Estimation of input prevalence
 
-An observational study was conducted using cross-sectional data from the Demographic and Family Health Surveys (ENDES) for the period 2015–2023. Based on these surveys, prevalent cases of diabetes at the national level in Peru were identified. The ENDES survey is conducted annually and is representative of the entire Peruvian territory, providing information on demographic characteristics, health indicators across the life course, communicable and non-communicable diseases, and related determinants.[@EncuestaDemograficaSalud]
+An observational study was conducted using cross-sectional data from the
+Demographic and Family Health Surveys (ENDES) for the period 2015–2023.
+Based on these surveys, prevalent cases of diabetes at the national
+level in Peru were identified. The ENDES survey is conducted annually
+and is representative of the entire Peruvian population based on a
+multi-level sampling
+approach[@institutonacionaldeestadísticaeinformática2026]. It provides
+information on demographic characteristics, health indicators across the
+life course, communicable and non-communicable diseases, and related
+determinants.[@EncuestaDemograficaSalud]
 
-The target population comprises households and their resident members, with data collected by trained personnel who visit the selected households. The instruments for data collection include interviews and laboratory measurements.[@EncuestaDemograficaSalud] Prevalent cases of diabetes were identified with the questions: "Has a doctor ever diagnosed you with diabetes or 'high sugar' in your blood?". This question offers the response options: "yes", "no", and "don't know/don't remember".[@EncuestaDemograficaSalud] For the analyses, only participants who respond "yes" or "no" were included.
+The target population comprises households and their resident members,
+with data collected by trained personnel who visit the selected
+households. The instruments for data collection include interviews and
+laboratory measurements.[@EncuestaDemograficaSalud] Prevalent cases of
+diabetes were identified with the questions: "Has a doctor ever
+diagnosed you with diabetes or 'high sugar' in your blood?". This
+question offers the response options: "yes", "no", and "don't know/don't
+remember".[@EncuestaDemograficaSalud] For the analyses, only
+participants who respond "yes" or "no" were included.
 
-Subsequently, age-specific prevalence of diabetes was estimated by sex for the years 2016-2023. Age groups were categorized in five-year intervals from 20 years up to 80+ years, with 95% CI calculated using logit transformation.
+Subsequently, age-specific prevalence of diabetes was estimated by sex
+for the years 2016-2023. Age groups were categorized in five-year
+intervals from 20 years up to 80+ years, with 95% CI calculated using
+logit transformation.
 
 ## 2.2 Estimating the incidence rate of diabetes
 
-To estimate incidence using the approach described below, information on the mortality rate of the general population $m$ and mortality rate ratio (MRR) comparing people with and without diabetes is required. Since no studies to date have estimated the MRR for Peru, as in previous studies we assumed a log-linear relationship for age and MRR between age with values ranging from 7.5–8.5 at age 30 and 2.5–3.0 at age 80.[@silverman-retanaUsingIllnessdeathModel2024] For $m$, we used data from the United Nations World Population Prospects.[@worldpopulation2024] Both the ENDES survey data and the United Nations mortality data are publicly available and can be accessed here (https://proyectos.inei.gob.pe/endes/ and https://population.un.org/dataportal/home?df=281d63a9-ed9a-48c1-9947-43927365464f).
+To estimate incidence using the approach described below, information on
+the mortality rate of the general population $m$ and mortality rate
+ratio (MRR) comparing people with and without diabetes is required.
+Since no studies to date have estimated the MRR for Peru, as in previous
+studies we assumed a log-linear relationship for age and MRR between age
+with values ranging from 7.5–8.5 at age 30 and 2.5–3.0 at age
+80.[@silverman-retanaUsingIllnessdeathModel2024] For $m$, we used data
+from the United Nations World Population
+Prospects.[@worldpopulation2024] Both the ENDES survey data and the
+United Nations mortality data are publicly available and can be accessed
+here (https://proyectos.inei.gob.pe/endes/ and
+https://population.un.org/dataportal/home?df=281d63a9-ed9a-48c1-9947-43927365464f).
 
-To estimate the incidence rate of diabetes for the years 2016-2023, an illness-death model was applied using a partial differential equation. This method has previously been used in the context of chronic non-communicable diseases. [@brinksAgeTimedependentModel2014; @hassAgespecificIncidenceNeed2023] This model is based on a mathematical relationship between the prevalence of diabetes, the mortality rate in the general population, and the MRR. Transitions between these states are characterized by incidence rates (no diabetes → diabetes) and mortality rates (no diabetes → death; diabetes → death).
+To estimate the incidence rate of diabetes for the years 2016-2023, an
+illness-death model was applied using a partial differential equation.
+This method has previously been used in the context of chronic
+non-communicable diseases. [@brinksAgeTimedependentModel2014;
+@hassAgespecificIncidenceNeed2023] This model is based on a mathematical
+relationship between the prevalence of diabetes, the mortality rate in
+the general population, and the MRR. Transitions between these states
+are characterized by incidence rates (no diabetes → diabetes) and
+mortality rates (no diabetes → death; diabetes → death).
 
-The partial differential equation used to estimate the incidence of diabetes was developed by Brinks and Landwehr[@brinksAgeTimedependentModel2014] and describes the change in prevalence with respect to age and calendar time:
+The partial differential equation used to estimate the incidence of
+diabetes was developed by Brinks and
+Landwehr[@brinksAgeTimedependentModel2014] and describes the change in
+prevalence with respect to age and calendar time:
 
 $$i = \frac{\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p}{1 - p} + m \cdot \frac{p (MRR - 1)}{p (MRR - 1) + 1}$$
 
-Where $i$ represents the incidence of diabetes, $p$ represents the prevalence, and $\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p$ denotes the temporal change in prevalence as a function of age $a$ and calendar time $t$. Therefore, the incidence rate can be calculated from estimates of the prevalence of diabetes, its temporal change by age and calendar time, the overall mortality rate, and the ratio of mortality rates between individuals with and without diabetes.
+Where $i$ represents the incidence of diabetes, $p$ represents the
+prevalence, and
+$\left( \frac{\partial}{\partial a} + \frac{\partial}{\partial t} \right)p$
+denotes the temporal change in prevalence as a function of age $a$ and
+calendar time $t$. Therefore, the incidence rate can be calculated from
+estimates of the prevalence of diabetes, its temporal change by age and
+calendar time, the overall mortality rate, and the ratio of mortality
+rates between individuals with and without diabetes.
 
-To smooth the prevalence estimates from the ENDES survey, we regressed the logit-transformed prevalence estimates on age, calender time and sex using linear regression. We allowed for a non-linear relationship between age and the log-odds of prevalence by including a third-degree polynomial for age. Calendar time was included as a linear term. We used expit-transformed predicted values from this linear regression as input prevalence for the partial differential equation.
+To smooth the prevalence estimates from the ENDES survey, we regressed
+the logit-transformed prevalence estimates on age, calender time and sex
+using linear regression. We allowed for a non-linear relationship
+between age and the log-odds of prevalence by including a third-degree
+polynomial for age. Calendar time was included as a linear term. We used
+expit-transformed predicted values from this linear regression as input
+prevalence for the partial differential equation.
 
-To account for uncertainty in the input data, we repeated the estimation of the incidence rate 1,000 times and varied the input prevalence and MRR. For each iteration, we sampled the MRR from a uniform distribution within the ranges described above. For age and sex-specific prevalence estimates, we shifted the point estimates using a random draw from a normal distribution scaled by the corresponding standard errors. From the resulting distribution of incidence estimates, we reported the median as point estimate and the 2.5th and 97.5th percentile as 95%-confidence bounds.
+To account for uncertainty in the input data, we repeated the estimation
+of the incidence rate 1,000 times and varied the input prevalence and
+MRR. For each iteration, we sampled the MRR from a uniform distribution
+within the ranges described above. For age and sex-specific prevalence
+estimates, we shifted the point estimates using a random draw from a
+normal distribution scaled by the corresponding standard errors. From
+the resulting distribution of incidence estimates, we reported the
+median as point estimate and the 2.5th and 97.5th percentile as
+95%-confidence bounds.
 
-All statistical analyses were performed in the R software version 4.5.0.[@rcoreteamLanguageEnvironmentStatistical2023].
+All statistical analyses were performed in the R software version
+4.5.0.[@rcoreteamLanguageEnvironmentStatistical2023].
 
 # Results
 
-During the study period, 294,549 participants from the ENDES population survey were included; of these, 9,002 (3.1%) reported having been diagnosed with diabetes by their treating physician (Table 1). Figure 1 shows the prevalence of diabetes by age and sex, estimated from ENDES data using logit-transformed prevalence estimates. These estimates were used as input data in the illness-death model described above, along with the general population mortality rate and the MRR, to obtain the diabetes incidence rate for each year of analysis by sex (Figure 2) and the age-specific rate by sex for each year of analysis (Figure 3).
+During the study period, 294,549 participants from the ENDES population
+survey were included; of these, 9,002 (3.1%) reported having been
+diagnosed with diabetes by their treating physician (Table 1). Figure 1
+shows the prevalence of diabetes by age and sex, estimated from ENDES
+data using logit-transformed prevalence estimates. These estimates were
+used as input data in the illness-death model described above, along
+with the general population mortality rate and the MRR, to obtain the
+diabetes incidence rate for each year of analysis by sex (Figure 2) and
+the age-specific rate by sex for each year of analysis (Figure 3).
 
-Between 2016 and 2023, the age-standardized incidence rate (IR) of diabetes showed a sustained increase in both sexes. Among men, the IR of diabetes rose from 4.46 (95% CI: 3.61 to 5.23) per 1,000 in 2016 to 8.58 (95% CI: 5.27 to 14.41) per 1,000 in 2023, corresponding to an incidence rate ratio (IRR) of 1.93 (95% CI: 1.14 to 3.24) compared with 2016. Similarly, among women, the IR of diabetes increased from 5.20 (95% CI: 4.27 to 6.19) per 1,000 in 2016 to 9.87 (95% CI: 6.16 to 16.07) per 1,000 in 2023, with an IRR of 1.92 (95% CI: 1.15 to 3.16) relative to the reference year (Table 2).
+Between 2016 and 2023, the age-standardized incidence rate (IR) of
+diabetes showed a sustained increase in both sexes. Among men, the IR of
+diabetes rose from 4.46 (95% CI: 3.61 to 5.23) per 1,000 in 2016 to 8.58
+(95% CI: 5.27 to 14.41) per 1,000 in 2023, corresponding to an incidence
+rate ratio (IRR) of 1.93 (95% CI: 1.14 to 3.24) compared with 2016.
+Similarly, among women, the IR of diabetes increased from 5.20 (95% CI:
+4.27 to 6.19) per 1,000 in 2016 to 9.87 (95% CI: 6.16 to 16.07) per
+1,000 in 2023, with an IRR of 1.92 (95% CI: 1.15 to 3.16) relative to
+the reference year (Table 2).
 
-When stratified by age group and calendar period, the IR of diabetes increased between 2016 and 2023 across all age groups in both sexes. The older age groups exhibited the highest IRs of diabetes in the population, reaching in 2023 an IR of diabetes of 22.54 (95% CI: 13.49 to 36.57) per 1,000 among 60-year-old men and 25.76 (95% CI: 16.10 to 43.11) per 1,000 among 60-year-old women. However, analysis of the IRR indicated that the largest and most relevant relative increases occurred in the younger age groups. When comparing rates of diabetes in the year 2023 with those in 2016, among 20-year-old age group, the IRR was 2.18 (95% CI: 1.00 to 4.21) in men and 2.16 (95% CI: 1.03 to 4.28) in women; important differences were observed in the 30-year-old age group, with IRRs of 2.13 (95% CI: 1.17 to 3.76) and 2.11 (95% CI: 1.25 to 3.52), respectively (Table 3).
+When stratified by age group and calendar period, the IR of diabetes
+increased between 2016 and 2023 across all age groups in both sexes. The
+older age groups exhibited the highest IRs of diabetes in the
+population, reaching in 2023 an IR of diabetes of 22.54 (95% CI: 13.49
+to 36.57) per 1,000 among 60-year-old men and 25.76 (95% CI: 16.10 to
+43.11) per 1,000 among 60-year-old women. However, analysis of the IRR
+indicated that the largest and most relevant relative increases occurred
+in the younger age groups. When comparing rates of diabetes in the year
+2023 with those in 2016, among 20-year-old age group, the IRR was 2.18
+(95% CI: 1.00 to 4.21) in men and 2.16 (95% CI: 1.03 to 4.28) in women;
+important differences were observed in the 30-year-old age group, with
+IRRs of 2.13 (95% CI: 1.17 to 3.76) and 2.11 (95% CI: 1.25 to 3.52),
+respectively (Table 3).
 
 # Discussion
 
-Our study applied the illness-death model to estimate the incidence of diabetes in Peru by using prevalence data from nationally representative surveys and mortality data from official vital statistics. Our findings showed that the incidence of diabetes in Peru has been steadily increasing in men and women since 2016, and reached its highest absolute levels in late midlife. We observed that the relative increase in diabetes incidence was markedly higher in the younger age groups, in particular among men in their 20's, and women in their 20's and 30's, suggesting a possible shift towards earlier diabetes onset.
+Our study applied the illness-death model to estimate the incidence of
+diabetes in Peru by using prevalence data from nationally representative
+surveys and mortality data from official vital statistics. Our findings
+showed that the incidence of diabetes in Peru has been steadily
+increasing in men and women since 2016, and reached its highest absolute
+levels in late midlife. We observed that the relative increase in
+diabetes incidence was markedly higher in the younger age groups, in
+particular among men in their 20's, and women in their 20's and 30's,
+suggesting a possible shift towards earlier diabetes onset.
 
-Our estimates should be interpreted alongside, rather than as directly comparable with, previous Peruvian cohort studies.The cumulative incidence estimates from our study were smaller than those reported in the PERUDIAB study,[@seclenElevatedIncidenceRates2017] but larger than those in the CRONICAS cohort study.[@bernabe-ortizGeographicalVariationProgression2016] These studies estimated glycaemia defined incidence in restricted populations, including previously undiagnosed disease, whereas our model used self-reported physician-diagnosed diabetes from repeated national surveys and should be interpreted as estimating diagnosed diabetes incidence. This distinction likely contributes to the lower incidence observed in our study.
+Our estimates should be interpreted alongside, rather than as directly
+comparable with, previous Peruvian cohort studies.The cumulative
+incidence estimates from our study were smaller than those reported in
+the PERUDIAB study,[@seclenElevatedIncidenceRates2017] but larger than
+those in the CRONICAS cohort
+study.[@bernabe-ortizGeographicalVariationProgression2016] These studies
+estimated glycaemia defined incidence in restricted populations,
+including previously undiagnosed disease, whereas our model used
+self-reported physician-diagnosed diabetes from repeated national
+surveys and should be interpreted as estimating diagnosed diabetes
+incidence. This distinction likely contributes to the lower incidence
+observed in our study.
 
-Differences in population coverage are also relevant. PERUDIAB was an urban cohort, while CRONICAS was based on selected sentinel sites rather than a nationally representative sample.[@seclenElevatedIncidenceRates2017] Additional Peruvian evidence showed marked variation in diabetes incidence across rural, rural-to-urban migrant, and urban populations, supporting the view that national estimates should not be expected to reproduce rates from urban or geographically selected cohorts.[@bernabe-ortizGeographicalVariationProgression2016] Our estimates of age- and sex-standardized incidence of diabetes extend earlier findings by providing contemporary nationally representative time series by calendar year.
+Differences in population coverage are also relevant. PERUDIAB was an
+urban cohort, while CRONICAS was based on selected sentinel sites rather
+than a nationally representative
+sample.[@seclenElevatedIncidenceRates2017] Additional Peruvian evidence
+showed marked variation in diabetes incidence across rural,
+rural-to-urban migrant, and urban populations, supporting the view that
+national estimates should not be expected to reproduce rates from urban
+or geographically selected
+cohorts.[@bernabe-ortizGeographicalVariationProgression2016] Our
+estimates of age- and sex-standardized incidence of diabetes extend
+earlier findings by providing contemporary nationally representative
+time series by calendar year.
 
-Methodologically, the closest regional comparator is the study by Silverman-Retana et al.;[@silverman-retanaUsingIllnessdeathModel2024] their study estimated an age-standardized incidence of diabetes of 6.1 to 8.0 per 1,000 person-years in men and 6.5 to 10.6 per 1,000 person-years in women between 2003 and 2015, with the highest age-specific rates in the 60 to 69 year age group. Our estimates for the Peruvian population were broadly similar in magnitude by 2023, but increased sharply over a shorter period of time. Both studies showed that incidence estimates peaked in later midlife. The implementation of the illness-death model for estimating nationally representative incidence rates in Latin American contexts is a useful, and cost-effective approach where where longitudinal diabetes surveillance is limited
+Methodologically, the closest regional comparator is the study by
+Silverman-Retana et al.;[@silverman-retanaUsingIllnessdeathModel2024]
+their study estimated an age-standardized incidence of diabetes of 6.1
+to 8.0 per 1,000 person-years in men and 6.5 to 10.6 per 1,000
+person-years in women in Mexico between 2003 and 2015, with the highest
+age-specific rates in the 60 to 69 year age group. Our estimates for the
+Peruvian population were broadly similar in magnitude by 2023, but
+increased sharply over a shorter period of time. Both studies showed
+that incidence estimates peaked in later midlife. A wider comparison
+with incidence rates and incidence rate trends over the past decades
+[@magliano2019], would place Peru in the middle ground among summarized
+incidence rates, and in the upper range of recent incident rate
+increases.
 
-The near doubling of incidence over eight years may reflect, at least in part, changes in known upstream risk factors of type 2 diabetes in Peru. Adiposity has increased markedly in the country: national survey analyses indicate that the prevalence of obesity rose over the last decade,[@vasquez-romeroPrevalenceObesityAccording2025] and that a large share of Peruvian adults now meet criteria for preclinical or clinical obesity.[@guerravalenciaNewDefinitionObesity2025] Because obesity carries the highest attributable risk for diabetes in Peruvian populations, [@bernabe-ortizGeographicalVariationProgression2016 @bernabe-ortizContributionModifiableRisk2016] a rising prevalence of excess adiposity provides a plausible mechanism for the increase in incidence we observed, alongside population ageing, urbanisation, and the broader nutrition transition documented in Peruvian cohorts.[@carrillo-larcoTrajectoriesBodyMass2018] Although, we can only speculate that obesity could be a strong driver as our model only took age, sex, and calendar year into account. The proportionally larger increase among younger adults aligns with international evidence that the mean age at type 2 diabetes diagnosis is comparatively low in low- and middle-income settings,[@lukEarlyonsetType22025] and is of particular concern because earlier onset implies a longer lifetime exposure to hyperglycaemia and a greater cumulative risk of complications.[@limUnderstandingDriversConsequences2025]
+The implementation of the illness-death model for estimating nationally
+representative incidence rates in Latin American contexts is a useful,
+and cost-effective approach where where longitudinal diabetes
+surveillance is limited
 
-The acceleration of incidence around 2020 and 2021 warrants cautious interpretation. One contributor may be the COVID-19 pandemic: SARS-CoV-2 infection has been associated with an increased risk of new-onset diabetes,[@xieRisksBurdensIncident2022] and the pandemic period was also marked by weight gain, reduced physical activity, and psychosocial stress at the population level.[@danielsSystematicReviewImpact2022 @nourEffectCOVID19Pandemic2023] At the same time, self-reported diagnosed incidence depends on access to and use of health services. The disruption of routine care in 2020, followed by catch-up diagnosis thereafter,[@vargas-fernandezImpactCOVID19Unmet2025] could have shaped the apparent timing of the increase independently of any change in true incidence.
+The near doubling of incidence over eight years may reflect, at least in
+part, changes in known upstream risk factors of type 2 diabetes in Peru.
+Adiposity has increased markedly in the country: national survey
+analyses indicate that the prevalence of obesity rose over the last
+decade,[@vasquez-romeroPrevalenceObesityAccording2025] and that a large
+share of Peruvian adults now meet criteria for preclinical or clinical
+obesity.[@guerravalenciaNewDefinitionObesity2025] Because obesity
+carries the highest attributable risk for diabetes in Peruvian
+populations, [@bernabe-ortizGeographicalVariationProgression2016
+@bernabe-ortizContributionModifiableRisk2016] a rising prevalence of
+excess adiposity provides a plausible mechanism for the increase in
+incidence we observed, alongside population ageing, urbanisation, and
+the broader nutritional transition documented in Peruvian
+cohorts[@carrillo-larcoTrajectoriesBodyMass2018]. We can only speculate
+that obesity could be a strong driver as our model only took age, sex,
+and calendar year into account. The proportionally larger increase among
+younger adults aligns with international evidence that the mean age at
+type 2 diabetes diagnosis is comparatively low in low- and middle-income
+settings,[@lukEarlyonsetType22025] and is of particular concern because
+earlier onset implies a longer lifetime exposure to hyperglycaemia and a
+greater cumulative risk of
+complications.[@limUnderstandingDriversConsequences2025]
 
-A sustained doubling of incidence implies a growing future prevalence of diabetes and a rising burden of complications and costs, with the increase among younger adults extending the horizon over which these consequences will accrue. Our findings reinforce the need for primary prevention focused on obesity, diet and physical activity, for earlier detection within primary care, and for strengthened national surveillance of diabetes and its risk factors. [@bakNationalDiabetesRegistries2021 @khuntiDiabetesRegistriesHighquality2023] Because our estimates were produced entirely from routinely collected survey data, the illness-death approach offers a low-cost, reproducible tool for monitoring diabetes incidence in Peru and in other countries that lack diabetes registries or cohorts.
+The acceleration of incidence around 2020 and 2021 warrants cautious
+interpretation. One contributor may be the COVID-19 pandemic: SARS-CoV-2
+infection has been associated with an increased risk of new-onset
+diabetes,[@xieRisksBurdensIncident2022] and the pandemic period was also
+marked by weight gain, reduced physical activity, and psychosocial
+stress at the population level.[@danielsSystematicReviewImpact2022
+@nourEffectCOVID19Pandemic2023] At the same time, self-reported
+diagnosed incidence depends on access to and use of health services. The
+disruption of routine care in 2020, followed by catch-up diagnosis
+thereafter,[@vargas-fernandezImpactCOVID19Unmet2025] could have shaped
+the apparent timing of the increase independently of any change in true
+incidence.
 
-The main strength of this study is the use of nationally representative survey data covering urban and rural areas and the full national territory, combined with an established modelling framework previously validated for chronic conditions. [@brinksAgeTimedependentModel2014 @silverman-retanaUsingIllnessdeathModel2024] The approach yields internally consistent age-, sex- and time-specific estimates from cross-sectional data and avoids the cost and attrition of cohort studies. Nevertheless, some limitations should be considered. First, diabetes was defined by self-report of a prior physician diagnosis. This approach has high specificity but limited sensitivity and does not capture undiagnosed disease. The IDF estimates that more than four in ten adults with diabetes are unaware of their condition.[@maglianoDiabetesAtlas2025] Our incidence estimates therefore reflect diagnosed diabetes and are conservative relative to total (diagnosed plus undiagnosed) incidence. They also partly reflect diagnostic activity and access to care, which changed over the study period. Second, the data do not distinguish type 1 from type 2 diabetes, although the great majority of adult-onset cases are type 2; the rising incidence of type 1 diabetes reported globally is a further reason for caution.[@gregoryGlobalIncidencePrevalence2022] Third, no Peruvian estimate of the diabetes-related MRR was available, therefore we rely on data from the National Danish Diabetes Register.[@carstensenPrevalenceIncidenceMortality2020] Based on an argument from Breslow & Day, the MRR is stable across different populations.[@statisticalmethodsincancerresearch]
+A sustained increase of incidence implies a growing future prevalence of
+diabetes and a rising burden of complications and costs, with the
+increase among younger adults extending the horizon over which these
+consequences will accrue. Our findings reinforce the need for primary
+prevention focused on obesity, diet and physical activity, for earlier
+detection within primary care, and for strengthened national
+surveillance of diabetes and its risk factors.
+[@bakNationalDiabetesRegistries2021
+@khuntiDiabetesRegistriesHighquality2023] Because our estimates were
+produced entirely from routinely collected survey data, the
+illness-death approach offers a low-cost, reproducible tool for
+monitoring diabetes incidence in Peru and in other countries that lack
+diabetes registries or cohorts.
 
-In conclusion, this study provides national, age- and sex-specific estimates of diabetes incidence in Peru, showing an approximate doubling between 2016 and 2023. Obtained from routine survey data through the illness-death model, these findings support strengthened prevention and surveillance and demonstrate a transferable approach for settings without diabetes cohorts.
+The main strength of this study is the use of nationally representative
+survey data covering urban and rural populations across the full
+national territory, combined with an established modelling framework
+previously validated for chronic conditions.
+[@brinksAgeTimedependentModel2014
+@silverman-retanaUsingIllnessdeathModel2024] The approach yields
+internally consistent age-, sex- and time-specific estimates from
+cross-sectional data and avoids the cost and attrition of cohort
+studies. Nevertheless, some limitations should be considered. First,
+diabetes was defined by self-report of a prior physician diagnosis. This
+approach has high specificity but limited sensitivity and does not
+capture undiagnosed disease. The IDF estimates that more than four in
+ten adults with diabetes are unaware of their
+condition.[@maglianoDiabetesAtlas2025] Our incidence estimates therefore
+reflect diagnosed diabetes and are conservative relative to total
+(diagnosed plus undiagnosed) incidence. They also partly reflect
+diagnostic activity and access to care, which changed over the study
+period. Second, the data do not distinguish type 1 from type 2 diabetes,
+although the great majority of adult-onset cases are type 2; the rising
+incidence of type 1 diabetes reported globally is a further reason for
+caution.[@gregoryGlobalIncidencePrevalence2022] Third, no Peruvian
+estimate of the diabetes-related MRR was available, therefore we rely on
+data from the National Danish Diabetes
+Register.[@carstensenPrevalenceIncidenceMortality2020] Based on an
+argument from Breslow & Day, the MRR is stable across different
+populations.[@statisticalmethodsincancerresearch]
+
+In conclusion, this study provides national, age- and sex-specific
+estimates of diabetes incidence in Peru, showing an approximate doubling
+between 2016 and 2023. Obtained from routine survey data through the
+illness-death model, these findings support strengthened prevention and
+surveillance and demonstrate a transferable approach for settings
+without diabetes cohorts.
 
 # Acknowledgements
 
-This project arose as part of the collaborative projects promoted within Steno Diabetes Center Aarhus internationalization strategy towards the Latin America region.
+This project arose as part of the collaborative projects promoted within
+Steno Diabetes Center Aarhus internationalization strategy towards the
+Latin America region.
 
 # Funding
 
-The authors received no specific funding for this work. OSR, and DRW are financially supported by Steno Diabetes Center Aarhus, which is partially funded by an unrestricted donation from the Novo Nordisk Foundation, and by Public Health in Central Denmark Region - a collaboration between municipalities and the region (grant no. A2436).
+The authors received no specific funding for this work. OSR, and DRW are
+financially supported by Steno Diabetes Center Aarhus, which is
+partially funded by an unrestricted donation from the Novo Nordisk
+Foundation, and by Public Health in Central Denmark Region - a
+collaboration between municipalities and the region (grant no. A2436).
 
 {{< pagebreak >}}
 
@@ -160,7 +432,8 @@ ft1
 
 {{< pagebreak >}}
 
-![Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023](plt.standardized.png)
+![Age-standardized incidence rates of diabetes for men and women in Peru
+for the years 2016-2023](plt.standardized.png)
 
 {{< pagebreak >}}
 
@@ -221,7 +494,11 @@ align(align = "center", part = "all")
 inc_wide_ft
 ```
 
-{{< pagebreak >}} ![Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023](plt.inc_age.png) {{< pagebreak >}}
+{{< pagebreak >}} 
+
+![Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023](plt.inc_age.png) 
+
+{{< pagebreak >}}
 
 ## Table 3. Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
 
@@ -282,6 +559,6 @@ inc_agespecific_wide_ft <- inc_agespecific_wide  |>
 inc_agespecific_wide_ft
 ```
 
-{{< pagebreak >}}
+{{< pagebreak >}} 
 
 # References

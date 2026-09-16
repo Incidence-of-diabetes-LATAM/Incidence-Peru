@@ -1,6 +1,6 @@
 ---
 title: "Age- and sex-standardised incidence of diabetes mellitus in Peru from 2016 to 2023"
-format: pdf
+format: docx
 author:
 - name: Carlos J. Toro-Huamanchumo
   orcid: 0000-0002-4664-2856
@@ -37,6 +37,7 @@ csl: ama.csl
 editor: 
   markdown: 
     wrap: 72
+citeproc: true
 ---
 
 # Highlights
@@ -408,6 +409,8 @@ collaboration between municipalities and the region (grant no. A2436).
 
 # Figures and Tables with legends
 
+![Estimated age and sex prevalence of diabetes from ENDES data](plt.input_prev.png) {{< pagebreak >}}
+
 ## Table 1. Description of the Demographic and Family Health Surveys (ENDES) from Peru for the period 2016–2023
 
 ```{r Table 1, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
@@ -427,16 +430,14 @@ ft1 <- t1  |>
 ft1
 ```
 
-{{< pagebreak >}} 
-
 {{< pagebreak >}}
 
 ![Age-standardized incidence rates of diabetes for men and women in Peru
 for the years 2016-2023](plt.standardized.png)
 
-{{< pagebreak >}} \## Table 2. Age-standardized incidence rates of
-diabetes for men and women in Peru for the years 2016-2023, and the
-temporal change in incidence rates between 2016 and 2023
+{{< pagebreak >}}
+
+## Table 2. Age-standardized incidence rates of diabetes for men and women in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
 
 ```{r Table 2, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
 inc_standardized <- readRDS(file = here::here("Data/inc.standardized.rds"))
@@ -493,11 +494,13 @@ align(align = "center", part = "all")
 inc_wide_ft
 ```
 
-{{< pagebreak >}} ![Age and sex-specific incidence rates of diabetes in
-Peru for the years 2016-2023](plt.inc_age.png) {{< pagebreak >}} \##
-Table 3. Age and sex-specific incidence rates of diabetes in Peru for
-the years 2016-2023, and the temporal change in incidence rates between
-2016 and 2023
+{{< pagebreak >}} 
+
+![Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023](plt.inc_age.png) 
+
+{{< pagebreak >}}
+
+## Table 3. Age and sex-specific incidence rates of diabetes in Peru for the years 2016-2023, and the temporal change in incidence rates between 2016 and 2023
 
 ```{r Table 3, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
 inc_agespecific <- readRDS(file = here::here("Data/inc.agespecific.rds"))
@@ -556,4 +559,6 @@ inc_agespecific_wide_ft <- inc_agespecific_wide  |>
 inc_agespecific_wide_ft
 ```
 
-{{< pagebreak >}} \# References
+{{< pagebreak >}} 
+
+# References

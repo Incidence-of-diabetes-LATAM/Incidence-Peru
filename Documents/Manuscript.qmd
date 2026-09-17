@@ -1,45 +1,63 @@
 ---
 title: "Age- and sex-standardised incidence of diabetes mellitus in Peru from 2016 to 2023"
-format: docx
+
+format: preprint-typst
+
 author:
 - name: Carlos J. Toro-Huamanchumo
   orcid: 0000-0002-4664-2856
   corresponding: true
   email: c.torohuamanchumo@ecu.edu.au
-  affilliations: OBEMET Center for Obesity and Metabolic Health, Lima, Peru. Universidad San Ignacio de Loyola, Lima, Peru. Nutrition and Health Innovation Research Institute, Edith Cowan University, Joondalup, Australia. 
+  affilliations: 
+  - OBEMET Center for Obesity and Metabolic Health, Lima, Peru. 
+  - Universidad San Ignacio de Loyola, Lima, Peru. 
+  - Nutrition and Health Innovation Research Institute, Edith Cowan University, Joondalup, Australia. 
+
 - name: Omar Silverman-Retana
   orcid: 0000-0002-2744-9698
   corresponding: false
   email: omar.silverman@ph.au.dk
-  affilliations:  Department of Public Health, Aarhus University, Aarhus, Denmark. Steno Diabetes Center Aarhus, Aarhus University Hospital, Aarhus, Denmark
+  affilliations:  
+  - Department of Public Health, Aarhus University, Aarhus, Denmark. 
+  - Steno Diabetes Center Aarhus, Aarhus University Hospital, Aarhus, Denmark
+
 - name: Juan Pablo Perez Bedolla
   orcid: 0000-0002-2474-6603
   corresponding: false
   email: juan.perez42@udea.edu.co
   affilliations: Universidad de Antioquia, Medellin, Colombia
+
 - name: Daniel R. Witte
   orcid: 0000-0002-0769-2922
   corresponding: false
   email: daniel.witte@ph.au.dk
-  affilliations: Department of Public Health, Aarhus University, Aarhus, Denmark. Steno Diabetes Center Aarhus, Aarhus University Hospital, Aarhus, Denmark
+  affilliations: 
+  - Department of Public Health, Aarhus University, Aarhus, Denmark. 
+  - Steno Diabetes Center Aarhus, Aarhus University Hospital, Aarhus, Denmark
+
 - name: Ralph Brinks
   orcid: 0000-0003-0961-6592
   corresponding: false
   email: Ralph.Brinks@uni-wh.de
-  affilliations: Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany. Medical Biometry and Epidemiology, Faculty of Health/School of Medicine, Witten/Herdecke University, Witten, Germany
+  affilliations: 
+  - Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany. 
+  - Medical Biometry and Epidemiology, Faculty of Health/School of Medicine, Witten/Herdecke University, Witten, Germany
+
 - name: Thaddäus Tönnies
   orcid: 0000-0003-1577-4212
   corresponding: false
   email: thaddaeus.toennies@ddz.de
-  affilliations: Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany
+  affilliations: 
+  - Institute for Biometrics and Epidemiology, German Diabetes Center (DDZ), Leibniz Institute for Diabetes Research at Heinrich-Heine-University Duesseldorf, Duesseldorf, Germany
+
 bibliography: incidence_peru.bib
 csl: ama.csl
+citeproc: true
+
 editor: 
   markdown: 
     wrap: 72
-citeproc: true
 ---
-
 # Abstract
 
 ## Aims
@@ -423,9 +441,9 @@ collaboration between municipalities and the region (grant no. A2436).
 
 {{< pagebreak >}}
 
-# Figures and Tables with legends
+# Figures and Tables
 
-![Figure 1. Prevalence of diabetes by age and sex, estimated from ENDES
+![Prevalence of diabetes by age and sex, estimated from ENDES
 data using transformed prevalence estimates](plt.input_prev.png)
 
 {{< pagebreak >}}
@@ -520,7 +538,7 @@ inc_wide_ft
 
 {{< pagebreak >}}
 
-![Figure 2. Age and sex-specific incidence rates of diabetes in Peru for
+![Age and sex-specific incidence rates of diabetes in Peru for
 the years 2016-2023](plt.inc_age.png)
 
 {{< pagebreak >}}

@@ -472,7 +472,7 @@ ft1 <- t1  |>
 ft1
 ```
 
-Percentages {{< pagebreak >}}
+{{< pagebreak >}}
 
 ![Age-standardized incidence rates of diabetes for men and women in Peru
 for the years 2016-2023](plt.standardized.png)

@@ -1,7 +1,7 @@
 ---
 title: "Age- and sex-standardised incidence of diabetes mellitus in Peru from 2016 to 2023"
 
-format: docx
+format: preprint-typst
 
 author:
 - name: Carlos J. Toro-Huamanchumo
@@ -199,7 +199,7 @@ in previous studies we assumed a log-linear relationship for age and MRR
 between age with values ranging from 7.5–8.5 at age 30 and 2.5–3.0 at
 age 80.[@silverman-retanaUsingIllnessdeathModel2024] For $m$, we used
 data from the United Nations World Population
-Prospects.[@worldpopulation2024] Both the ENDES survey data and the
+Prospects.[@unitednationsWorldPopulationProspects2024] Both the ENDES survey data and the
 United Nations mortality data are publicly available and can be accessed
 here (https://proyectos.inei.gob.pe/endes/ and
 https://population.un.org/dataportal/home?df=281d63a9-ed9a-48c1-9947-43927365464f).
